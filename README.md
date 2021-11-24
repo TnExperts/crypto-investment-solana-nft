@@ -1,6 +1,6 @@
 # 📈 Crypto Trading
 
-Crypto Trading is a web app that displays information about the price, market cap, change in price over time, price charts of various cryptocurrencies like Bitcoin and Ethereum. The app also lets users take advantage of an inbuilt trading bot that buys or sells a specific asset when the target price point is reached. Each user also gets a NFT (non-fungible token) as a signup reward for using Crypto Trading App.
+Crypto Trading is a web app that displays information about the price, market cap, change in price over time, price charts of various cryptocurrencies like Bitcoin and Ethereum. The app also lets users take advantage of an inbuilt trading bot that buys or sells a specific asset when the target price point is reached. Each user also gets a NFT (non-fungible token) as a signup reward for using Crypto Trading.
 
 <h3 align="left">Built with:</h3>
 <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="typescript" width="40" height="40"/></a> 
