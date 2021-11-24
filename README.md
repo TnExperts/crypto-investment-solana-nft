@@ -22,15 +22,24 @@ Crypto Trading is a web app that displays information about the price, market ca
 | An example of a reusable component that you have created andused in the app (e.g. Ul component, service, etc) |        |
 
 
-## Functionalities
+## 🔬 Functionalities
 
 | A user can...                                                                                                            |
 |--------------------------------------------------------------------------------------------------------------------------|
 |                                                                                                                          |
 | View prices, market cap, change %, and price charts of various cryptocurrencies                                          |
-| Trade<br> &nbsp; &nbsp;- Buy / Sell<br> &nbsp; &nbsp;- Use a trading bot that executes the target price set by the user  |
+| Trade<br> &nbsp; &nbsp;→ Buy / Sell<br> &nbsp; &nbsp;→ Use a trading bot that executes the target price set by the user  |
 | View portfolio                                                                                                           |
 | Register                                                                                                                 |
 | Login                                                                                                                    |
 | Logout                                                                                                                   |
 | Mint an NFT                                                                                                              |
+
+## 🗂 Trello 
+
+I'm using Trello to plan and organize different stages of this project. 
+
+You can view public my Trello board [here](https://trello.com/b/eemmONte/trading-app).
+
+
+
