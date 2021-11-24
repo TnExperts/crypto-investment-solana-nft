@@ -20,3 +20,17 @@ Crypto Trading is a web app that displays information about the price, market ca
 | Integration with a 3rd party RESTful API.                                                                     |        |
 | Usage of at least 5 UI components from the material-ui/@core                                                  |        |
 | An example of a reusable component that you have created andused in the app (e.g. Ul component, service, etc) |        |
+
+
+## Functionalities
+
+| A user can...                                                                                                            |
+|--------------------------------------------------------------------------------------------------------------------------|
+|                                                                                                                          |
+| View prices, market cap, change %, and price charts of various cryptocurrencies                                          |
+| Trade<br> &nbsp; &nbsp;- Buy / Sell<br> &nbsp; &nbsp;- Use a trading bot that executes the target price set by the user  |
+| View portfolio                                                                                                           |
+| Register                                                                                                                 |
+| Login                                                                                                                    |
+| Logout                                                                                                                   |
+| Mint an NFT                                                                                                              |
