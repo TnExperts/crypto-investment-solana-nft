@@ -12,34 +12,33 @@ Crypto Trading is a web app that displays information about the price, market ca
 ## 🎯 Project Scope
 
 | Requirements                                                                                                  | Status |
-|---------------------------------------------------------------------------------------------------------------|--------|
+| ------------------------------------------------------------------------------------------------------------- | ------ |
 | Use of a modern JS Library / Framework like React, Angular, etc                                               |        |
-| Create an application that can be interacted with in a minimum ofthree different ways by the user             |        |
+| Create an application that can be interacted with in a minimum of three different ways by the user            |        |
 | The usage of a specified architectural pattern (MVC, MVP, MWM,etc.)                                           |        |
 | Integration with a backend service developed by you with CRUD(create, read, update, delete) operations        |        |
 | Integration with a 3rd party RESTful API.                                                                     |        |
 | Usage of at least 5 UI components from the material-ui/@core                                                  |        |
-| An example of a reusable component that you have created andused in the app (e.g. Ul component, service, etc) |        |
-
+| An example of a reusable component that you have created and used in the app (e.g. Ul component, service, etc) |        |
 
 ## 🔬 Functionalities
 
-| A user can...                                                                                                            |
-|--------------------------------------------------------------------------------------------------------------------------|
-|                                                                                                                          |
-| View prices, market cap, change %, and price charts of various cryptocurrencies                                          |
-| Trade<br> &nbsp; &nbsp;→ Buy / Sell<br> &nbsp; &nbsp;→ Use a trading bot that executes the target price set by the user  |
-| View portfolio                                                                                                           |
-| Register                                                                                                                 |
-| Login                                                                                                                    |
-| Logout                                                                                                                   |
-| Mint an NFT                                                                                                              |
+| A user can...                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                         |
+| View prices, market cap, change %, and price charts of various cryptocurrencies                                         |
+| Trade<br> &nbsp; &nbsp;→ Buy / Sell<br> &nbsp; &nbsp;→ Use a trading bot that executes the target price set by the user |
+| View portfolio                                                                                                          |
+| Register                                                                                                                |
+| Login                                                                                                                   |
+| Logout                                                                                                                  |
+| Mint an NFT                                                                                                             |
 
-## 🗂 Trello 
+## 🗂 Trello
 
-I'm using Trello to plan and organize different stages of this project. 
+I'm using Trello to plan and organize different stages of this project.
 
 You can view public my Trello board [here](https://trello.com/b/eemmONte/trading-app).
 
-
+## 🧪 Technologies Used
 
