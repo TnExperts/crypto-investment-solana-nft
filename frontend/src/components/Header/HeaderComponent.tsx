@@ -33,6 +33,7 @@ const Header: React.FC<Props> = () => {
   const handleMenuClick = (page: string) => {
     setAnchorEl(null);
   };
+  
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -98,15 +99,15 @@ const Header: React.FC<Props> = () => {
                 </>
               ) : (
                 <div style={{ display: 'flex' }}>
-                  <Link to="/" className="header-link">
+                  <Link to="/" className="header-link link">
                     <h3>Home</h3>
                   </Link>
 
-                  <Link to="/login" className="header-link">
+                  <Link to="/login" className="header-link link">
                     <h3>Login</h3>
                   </Link>
 
-                  <Link to="/register" className="header-link">
+                  <Link to="/register" className="header-link link">
                     <h3>Register</h3>
                   </Link>
                 </div>
