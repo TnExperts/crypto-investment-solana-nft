@@ -6,7 +6,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Header from './components/Header/HeaderComponent';
-import DashboardHeader from './components/DashboardHeader/DashboardHeader';
+import DashboardHeader from './components/DashboardComponents/DashboardHeader/DashboardHeader';
 
 const App: React.FC<{}> = (props) => {
   const auth: boolean = false;
