@@ -21,10 +21,22 @@ const FormComponent: React.FC<Props> = (props) => {
           <form action="">
             <input type="text" name="email" placeholder="Email" />
             <input type="password" name="password" placeholder="Password" />
-            {props.buttonText == 'Login' ? (
-              <p>Forgot your password?</p>
+            {props.buttonText === 'Login' ? (
+              <>
+                <p className="form_extra_font">
+                  <Link to="/register" className="link">
+                    Don't have an account?
+                  </Link>
+                </p>
+
+                {/* <p className="form_extra_font">Forgot your password?</p> */}
+              </>
             ) : (
-              <p>Don't have an account?</p>
+              <p className="form_extra_font">
+                <Link to="/login" className="link">
+                  Already have an account?
+                </Link>
+              </p>
             )}
             <button type="submit">{props.buttonText}</button>
           </form>
