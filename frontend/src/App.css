@@ -51,11 +51,16 @@
   }
 }
 
-.header-link {
-  margin-left: 50px;
+.link {
   text-decoration: none;
   text-decoration-line: none;
   color: white;
+}
+.link:hover {
+  color: #7bb2d6;
+}
+.header-link {
+  margin-left: 50px;
 }
 
 input[type='text'],
@@ -83,4 +88,19 @@ button[type='submit'] {
 
 input[type='submit']:hover {
   background-color: #45a049;
+}
+
+.form_extra_font {
+  font-size: 14px;
+}
+
+.home-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5rem;
+}
+
+.content:hover {
+  transform: rotateY(360deg);
+  transition: transform 1s;
 }
