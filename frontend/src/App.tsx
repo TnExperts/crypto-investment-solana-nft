@@ -6,16 +6,18 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Header from './components/Header/HeaderComponent';
+import DashboardHeader from './components/DashboardHeader/DashboardHeader';
 
 const App: React.FC<{}> = (props) => {
+  const auth: boolean = false;
   return (
     <BrowserRouter>
-      <Header />
+      {auth ? <Header /> : <DashboardHeader />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

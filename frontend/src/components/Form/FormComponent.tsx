@@ -18,7 +18,7 @@ const FormComponent: React.FC<Props> = (props) => {
         }}
       >
         <div>
-          <form action="">
+          <form action="/dashboard">
             <input type="text" name="email" placeholder="Email" />
             <input type="password" name="password" placeholder="Password" />
             {props.buttonText === 'Login' ? (

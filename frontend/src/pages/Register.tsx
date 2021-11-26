@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import RegisterComponent from '../components/Register/RegisterComponent';
 
 interface Props {}

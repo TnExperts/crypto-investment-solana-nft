@@ -77,7 +77,8 @@ select {
 
 button[type='submit'] {
   width: 50%;
-  background-color: #4caf50;
+  background: -webkit-linear-gradient(left, #479e3f, #35aee2);
+  background-size: 200% 200%;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -86,8 +87,9 @@ button[type='submit'] {
   cursor: pointer;
 }
 
-input[type='submit']:hover {
-  background-color: #45a049;
+button[type='submit']:hover {
+  background: -webkit-linear-gradient(left, #479e3f, #78ffd6);
+  background-size: 200% 200%;
 }
 
 .form_extra_font {
@@ -103,4 +105,10 @@ input[type='submit']:hover {
 .content:hover {
   transform: rotateY(360deg);
   transition: transform 1s;
+}
+
+@media screen and (max-width: 600px) {
+  .home-content {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

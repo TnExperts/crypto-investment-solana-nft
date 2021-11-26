@@ -15,13 +15,49 @@ import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 
 interface Props {}
+interface MenuProps {
+  title: string;
+  to: string;
+}
+
+const menuItems = [
+  {
+    title: 'Home',
+    link: '/',
+  },
+  {
+    title: 'Login',
+    link: '/login',
+  },
+  {
+    title: 'Register',
+    link: '/register',
+  },
+];
+
+const RenderDesktopLinks: React.FC<MenuProps> = (props) => {
+  return (
+    <Link to={props.to} className="header-link link">
+      <h3>{props.title}</h3>
+    </Link>
+  );
+};
+
+const RenderMobileLinks: React.FC<MenuProps> = (props) => {
+  return (
+    <MenuItem sx={{ backgroundColor: '#17171b' }}>
+      <Link to={props.to} className="header-link link">
+        <h3>{props.title}</h3>
+      </Link>
+    </MenuItem>
+  );
+};
 
 const Header: React.FC<Props> = () => {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  console.log(isMobile);
   // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   //   setAuth(event.target.checked);
   // };
@@ -30,10 +66,9 @@ const Header: React.FC<Props> = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClick = (page: string) => {
-    setAnchorEl(null);
-  };
-  
+  // const handleMenuClick = (page: string) => {
+  //   setAnchorEl(null);
+  // };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -86,30 +121,16 @@ const Header: React.FC<Props> = () => {
                     open={Boolean(anchorEl)}
                     onClose={() => setAnchorEl(null)}
                   >
-                    <MenuItem onClick={() => handleMenuClick('/')}>
-                      Home
-                    </MenuItem>
-                    <MenuItem onClick={() => handleMenuClick('/login')}>
-                      Login
-                    </MenuItem>
-                    <MenuItem onClick={() => handleMenuClick('/register')}>
-                      Register
-                    </MenuItem>
+                    {menuItems.map((item) => (
+                      <RenderMobileLinks title={item.title} to={item.link} />
+                    ))}
                   </Menu>
                 </>
               ) : (
                 <div style={{ display: 'flex' }}>
-                  <Link to="/" className="header-link link">
-                    <h3>Home</h3>
-                  </Link>
-
-                  <Link to="/login" className="header-link link">
-                    <h3>Login</h3>
-                  </Link>
-
-                  <Link to="/register" className="header-link link">
-                    <h3>Register</h3>
-                  </Link>
+                  {menuItems.map((item) => (
+                    <RenderDesktopLinks title={item.title} to={item.link} />
+                  ))}
                 </div>
               )}
             </div>
