@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
+import { useHistory } from 'react-router-dom';
 
 interface Props {}
 
@@ -16,6 +17,8 @@ const Register: React.FC<Props> = () => {
   const [userEmail, setUserEmail] = React.useState<string>('');
   const [userPassword, setUserPassword] = React.useState<string>('');
   const [error, setError] = React.useState<string>('');
+
+  const history = useHistory();
 
   const registerUserWithEmailAndPassword = () => {
     console.log('registerUserWithEmailAndPassword');
@@ -26,14 +29,12 @@ const Register: React.FC<Props> = () => {
     createUserWithEmailAndPassword(auth, userEmail, userPassword)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        // <Link to="/dashboard"></Link>;
+        // const user = userCredential.user;
+        history.push('/login');
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        // const errorMessage = error.message;
         // Handle Errors
         if (errorCode === 'auth/weak-password') {
           setError('Password should be at least 6 characters.');
