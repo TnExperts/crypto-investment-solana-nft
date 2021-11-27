@@ -1,9 +1,6 @@
 import React from 'react';
 import { auth } from '../config/firebase';
-import {
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-} from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 import Alert from '@mui/material/Alert';
