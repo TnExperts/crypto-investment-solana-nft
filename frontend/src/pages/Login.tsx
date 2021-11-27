@@ -34,12 +34,12 @@ const Login: React.FC<Props> = () => {
         const errorCode = error.code;
         // const errorMessage = error.message;
         console.log(errorCode);
-        if (errorCode === 'auth/weak-password') {
-          setError('Password should be at least 6 characters.');
-        } else if (errorCode === 'auth/email-already-in-use') {
-          setError('The email is already in use.');
-        } else if (errorCode === 'auth/invalid-email') {
-          setError('The email is invalid.');
+        if (
+          errorCode === 'auth/wrong-password' ||
+          errorCode === 'auth/invalid-email' ||
+          errorCode === 'auth/user-not-found'
+        ) {
+          setError('Email / Password is invalid.');
         }
       });
   };
