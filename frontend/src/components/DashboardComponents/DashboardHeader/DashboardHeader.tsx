@@ -5,8 +5,6 @@ import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -15,13 +13,13 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import GridViewIcon from '@mui/icons-material/GridView';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import RedeemIcon from '@mui/icons-material/Redeem';
-import { fontWeight } from '@mui/system';
+import { signOut } from 'firebase/auth';
+import { useHistory } from 'react-router-dom';
+import { auth } from '../../../config/firebase';
 
 const drawerWidth = 240;
 
@@ -97,6 +95,7 @@ const Drawer = styled(MuiDrawer, {
 export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const history = useHistory();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -104,6 +103,17 @@ export default function MiniDrawer() {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        history.push('/login');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -161,21 +171,23 @@ export default function MiniDrawer() {
           <List>
             <ListItem>
               <ListItemIcon>
-                <GridViewIcon sx={{ color: 'white' }} />
+                <GridViewIcon sx={{ color: 'white', cursor: 'pointer' }} />
               </ListItemIcon>
               <ListItemText primary="Dashboard" />
             </ListItem>
 
             <ListItem>
               <ListItemIcon>
-                <AccountBalanceWalletIcon sx={{ color: 'white' }} />
+                <AccountBalanceWalletIcon
+                  sx={{ color: 'white', cursor: 'pointer' }}
+                />
               </ListItemIcon>
               <ListItemText primary="Wallet" />
             </ListItem>
 
             <ListItem>
               <ListItemIcon>
-                <RedeemIcon sx={{ color: 'white' }} />
+                <RedeemIcon sx={{ color: 'white', cursor: 'pointer' }} />
               </ListItemIcon>
               <ListItemText primary="Claim NFT!" disableTypography />
             </ListItem>
@@ -184,7 +196,10 @@ export default function MiniDrawer() {
           <List style={{ bottom: 0, position: 'absolute' }}>
             <ListItem>
               <ListItemIcon>
-                <LogoutIcon sx={{ color: 'white' }} />
+                <LogoutIcon
+                  sx={{ color: 'white', cursor: 'pointer' }}
+                  onClick={logOut}
+                />
               </ListItemIcon>
               <ListItemText primary="Logout" />
             </ListItem>
