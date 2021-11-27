@@ -29,6 +29,7 @@ const Register: React.FC<Props> = () => {
         history.push('/login');
       })
       .catch((error) => {
+        console.log(error);
         const errorCode = error.code;
         // const errorMessage = error.message;
         // Handle Errors
