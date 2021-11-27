@@ -18,7 +18,6 @@ const Register: React.FC<Props> = () => {
   const history = useHistory();
 
   const registerUserWithEmailAndPassword = () => {
-    console.log('registerUserWithEmailAndPassword');
     if (error !== '') {
       setError('');
     }
