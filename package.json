@@ -5,9 +5,5 @@
   "main": "index.js",
   "repository": "https://github.com/tapabratadey/crypto-trading.git",
   "author": "Tapabrata Dey <tapabratadey02@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "@mui/material": "^5.0.0-rc.1"
-  }
+  "license": "MIT"
 }
