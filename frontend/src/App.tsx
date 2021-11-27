@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -9,16 +9,16 @@ import Header from './components/Header/HeaderComponent';
 import DashboardHeader from './components/DashboardComponents/DashboardHeader/DashboardHeader';
 
 const App: React.FC<{}> = (props) => {
-  const auth: boolean = false;
+  const auth: boolean = true;
   return (
     <BrowserRouter>
       {auth ? <Header /> : <DashboardHeader />}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/register" exact component={Register} />
+        <Route path="/dashboard" exact component={Dashboard} />
+      </Switch>
     </BrowserRouter>
   );
 };
