@@ -133,9 +133,6 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <h3>Dashboard 👀</h3>
-          {/* <Typography variant="h6" noWrap component="div">
-            Dashboard
-          </Typography> */}
         </Toolbar>
       </AppBar>
       <Drawer
