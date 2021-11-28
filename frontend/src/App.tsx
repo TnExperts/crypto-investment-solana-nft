@@ -7,10 +7,9 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Header from './components/Header/HeaderComponent';
 import DashboardHeader from './components/DashboardComponents/DashboardHeader/DashboardHeader';
-import { auth } from './config/firebase';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
-const App: React.FC<{}> = (props) => {
+const App: React.FC<{}> = () => {
   return (
     <BrowserRouter>
       <Header />
