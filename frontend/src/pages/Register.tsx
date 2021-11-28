@@ -25,11 +25,9 @@ const Register: React.FC<Props> = () => {
     createUserWithEmailAndPassword(auth, userEmail, userPassword)
       .then((userCredential) => {
         // Signed in
-        // const user = userCredential.user;
         history.push('/login');
       })
       .catch((error) => {
-        console.log(error);
         const errorCode = error.code;
         // const errorMessage = error.message;
         // Handle Errors
