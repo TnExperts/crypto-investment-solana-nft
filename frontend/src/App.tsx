@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
-import PageNotFound from './pages/PageNotFound';
 import Header from './components/Header/HeaderComponent';
 import DashboardHeader from './components/DashboardComponents/DashboardHeader/DashboardHeader';
 import { auth } from './config/firebase';
@@ -14,15 +13,14 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 const App: React.FC<{}> = (props) => {
   return (
     <BrowserRouter>
-      {!auth.currentUser ? <Header /> : <DashboardHeader />}
+      <Header />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/register" exact component={Register} />
-        <Route path="*" exact component={PageNotFound} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
         <ProtectedRoute>
           <DashboardHeader />
-          <Route path="/dashboard" exact component={Dashboard} />
+          <Route exact path="/dashboard" component={Dashboard} />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
