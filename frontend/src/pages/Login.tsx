@@ -25,6 +25,12 @@ const Login: React.FC<Props> = () => {
     signInWithEmailAndPassword(auth, userEmail, userPassword)
       .then((userCredential) => {
         // Signed in
+
+        userCredential.user.getIdToken().then((token) => {
+          localStorage.setItem('user', 'loggedIn');
+          console.log(token);
+        });
+        const user = userCredential.user;
         history.push('/dashboard');
       })
       .catch((error) => {
