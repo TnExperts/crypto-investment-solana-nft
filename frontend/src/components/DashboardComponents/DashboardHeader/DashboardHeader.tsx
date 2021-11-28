@@ -108,6 +108,8 @@ export default function MiniDrawer() {
   const logOut = () => {
     signOut(auth)
       .then(() => {
+        // remove user from local storage to log user out
+        localStorage.removeItem('user');
         // Sign-out successful.
         history.push('/login');
       })
