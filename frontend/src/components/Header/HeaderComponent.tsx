@@ -57,7 +57,7 @@ const RenderMobileLinks: React.FC<MenuProps> = (props) => {
 };
 
 const Header: React.FC<Props> = () => {
-  const [auth, setAuth] = React.useState(true);
+  // const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -95,53 +95,53 @@ const Header: React.FC<Props> = () => {
           <div style={{ display: 'flex', flex: 1 }}>
             <h1>Crypto Trading 📈</h1>
           </div>
-          {auth && (
-            <div>
-              {isMobile ? (
-                <>
-                  <IconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
-                    sx={{ mr: 2 }}
-                    onClick={handleMenu}
-                  >
-                    <MenuIcon />
-                  </IconButton>
-                  <Menu
-                    id="menu-appbar"
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                      vertical: 'top',
-                      horizontal: 'right',
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                      vertical: 'top',
-                      horizontal: 'right',
-                    }}
-                    open={Boolean(anchorEl)}
-                    onClose={() => setAnchorEl(null)}
-                  >
-                    {menuItems.map((item) => (
-                      <RenderMobileLinks title={item.title} to={item.link} />
-                    ))}
-                  </Menu>
-                </>
-              ) : (
-                <div style={{ display: 'flex' }}>
+          {/* {auth && ( */}
+          <div>
+            {isMobile ? (
+              <>
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  sx={{ mr: 2 }}
+                  onClick={handleMenu}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorEl)}
+                  onClose={() => setAnchorEl(null)}
+                >
                   {menuItems.map((item) => (
-                    <RenderDesktopLinks
-                      key={item.id}
-                      title={item.title}
-                      to={item.link}
-                    />
+                    <RenderMobileLinks title={item.title} to={item.link} />
                   ))}
-                </div>
-              )}
-            </div>
-          )}
+                </Menu>
+              </>
+            ) : (
+              <div style={{ display: 'flex' }}>
+                {menuItems.map((item) => (
+                  <RenderDesktopLinks
+                    key={item.id}
+                    title={item.title}
+                    to={item.link}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+          {/* )} */}
         </Toolbar>
       </AppBar>
     </Box>
