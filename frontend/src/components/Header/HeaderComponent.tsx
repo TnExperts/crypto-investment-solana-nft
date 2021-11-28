@@ -22,14 +22,17 @@ interface MenuProps {
 
 const menuItems = [
   {
+    id: 1,
     title: 'Home',
     link: '/',
   },
   {
+    id: 2,
     title: 'Login',
     link: '/login',
   },
   {
+    id: 3,
     title: 'Register',
     link: '/register',
   },
@@ -129,7 +132,11 @@ const Header: React.FC<Props> = () => {
               ) : (
                 <div style={{ display: 'flex' }}>
                   {menuItems.map((item) => (
-                    <RenderDesktopLinks title={item.title} to={item.link} />
+                    <RenderDesktopLinks
+                      key={item.id}
+                      title={item.title}
+                      to={item.link}
+                    />
                   ))}
                 </div>
               )}
