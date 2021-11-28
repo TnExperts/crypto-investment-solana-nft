@@ -14,6 +14,7 @@ const Login: React.FC<Props> = () => {
   const [userEmail, setUserEmail] = React.useState<string>('');
   const [userPassword, setUserPassword] = React.useState<string>('');
   const [error, setError] = React.useState<string>('');
+  const [token, setToken] = React.useState<string>('');
 
   const history = useHistory();
 
@@ -26,11 +27,12 @@ const Login: React.FC<Props> = () => {
       .then((userCredential) => {
         // Signed in
 
-        userCredential.user.getIdToken().then((token) => {
-          localStorage.setItem('user', 'loggedIn');
-          console.log(token);
-        });
         const user = userCredential.user;
+        user.getIdToken().then((token) => {
+          localStorage.setItem('user', 'loggedIn');
+          setToken(token);
+        });
+
         history.push('/dashboard');
       })
       .catch((error) => {
