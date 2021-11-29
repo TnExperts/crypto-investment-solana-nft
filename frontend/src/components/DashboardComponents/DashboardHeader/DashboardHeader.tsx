@@ -168,37 +168,32 @@ export default function MiniDrawer() {
           }}
         >
           <List>
-            <ListItem>
+            <ListItem sx={{ cursor: 'pointer' }}>
               <ListItemIcon>
-                <GridViewIcon sx={{ color: 'white', cursor: 'pointer' }} />
+                <GridViewIcon sx={{ color: 'white' }} />
               </ListItemIcon>
               <ListItemText primary="Dashboard" />
             </ListItem>
 
-            <ListItem>
+            <ListItem sx={{ cursor: 'pointer' }}>
               <ListItemIcon>
-                <AccountBalanceWalletIcon
-                  sx={{ color: 'white', cursor: 'pointer' }}
-                />
+                <AccountBalanceWalletIcon sx={{ color: 'white' }} />
               </ListItemIcon>
               <ListItemText primary="Wallet" />
             </ListItem>
 
-            <ListItem>
+            <ListItem sx={{ cursor: 'pointer' }}>
               <ListItemIcon>
-                <RedeemIcon sx={{ color: 'white', cursor: 'pointer' }} />
+                <RedeemIcon sx={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Claim NFT!" disableTypography />
+              <ListItemText primary="Claim NFT!" />
             </ListItem>
           </List>
 
           <List style={{ bottom: 0, position: 'absolute' }}>
-            <ListItem>
+            <ListItem sx={{ cursor: 'pointer' }}>
               <ListItemIcon>
-                <LogoutIcon
-                  sx={{ color: 'white', cursor: 'pointer' }}
-                  onClick={logOut}
-                />
+                <LogoutIcon sx={{ color: 'white' }} onClick={logOut} />
               </ListItemIcon>
               <ListItemText primary="Logout" />
             </ListItem>
