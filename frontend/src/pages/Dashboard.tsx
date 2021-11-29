@@ -9,18 +9,16 @@ import DashboardHeader from '../components/DashboardComponents/DashboardHeader/D
 interface Props {}
 
 const Dashboard: React.FC<Props> = () => {
-  const [isAuthenticated, setIsAuthenticated] = React.useState<boolean>(true);
   const [auth_user, setUser] = React.useState<string | null>('');
 
   const history = useHistory();
   React.useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (!user) {
-        setIsAuthenticated(false);
         history.push('/login');
       } else {
-        setIsAuthenticated(true);
         setUser(user.email);
+        console.log(auth_user);
       }
     });
   }, []);
