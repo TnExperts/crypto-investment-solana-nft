@@ -9,23 +9,35 @@ import DashboardHeader from '../components/DashboardComponents/DashboardHeader/D
 interface Props {}
 
 const Dashboard: React.FC<Props> = () => {
+  const [auth_user, setUser] = React.useState<string | null>('');
+  const history = useHistory();
+  const [userToken, setToken] = React.useState<string>('');
+
   const fetchAsset = async () => {
-    fetch('http://localhost:8080/dashboard')
+    fetch('http://localhost:8080/dashboard', {
+      headers: {
+        Authorization: `Bearer ${userToken}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
       });
   };
 
-  const [auth_user, setUser] = React.useState<string | null>('');
+  const getToken = () => {
+    auth.currentUser?.getIdToken(true).then((idToken) => {
+      setToken(idToken);
+    });
+  };
 
-  const history = useHistory();
   React.useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (!user) {
         history.push('/login');
       } else {
         setUser(user.email);
+        getToken();
         fetchAsset();
       }
     });
