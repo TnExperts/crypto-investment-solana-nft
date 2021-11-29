@@ -15,6 +15,7 @@ interface AssetComponentProps {
 
 const assets = [
   {
+    id: 1,
     name: 'Bitcoin',
     symbol: 'BTC',
     price: '$60,000.00',
@@ -22,6 +23,7 @@ const assets = [
     changeColor: 'green',
   },
   {
+    id: 2,
     name: 'Ethereum',
     symbol: 'ETH',
     price: '$4,000.00',
@@ -29,6 +31,7 @@ const assets = [
     changeColor: 'green',
   },
   {
+    id: 3,
     name: 'Solana',
     symbol: 'SOL',
     price: '$200.00',
@@ -36,6 +39,7 @@ const assets = [
     changeColor: 'green',
   },
   {
+    id: 4,
     name: 'Binance Coin',
     symbol: 'BNB',
     price: '$600.00',
@@ -72,6 +76,7 @@ const AssetCardComponent: React.FC<Props> = () => {
           {assets.map((asset) => {
             return (
               <AssetComponent
+                key={asset.id}
                 name={asset.name}
                 symbol={asset.symbol}
                 price={asset.price}
