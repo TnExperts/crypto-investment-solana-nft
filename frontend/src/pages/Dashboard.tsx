@@ -11,13 +11,11 @@ interface Props {}
 const Dashboard: React.FC<Props> = () => {
   const [auth_user, setUser] = React.useState<string | null>('');
   const history = useHistory();
-  // const [userToken, setToken] = React.useState<string>('');
 
   const fetchAsset = async (idToken: string) => {
     fetch('http://localhost:8080/dashboard', {
       headers: {
-        // authorization: `Bearer ${idToken}`, // before
-        authorization: idToken, // now
+        authorization: `Bearer ${idToken}`,
       },
     })
       .then((res) => res.json())
