@@ -7,7 +7,4 @@ const FirebaseApp = initializeApp(config.firebaseConfig);
 
 export const auth = getAuth(FirebaseApp);
 
-export const Providers = {
-  google: new GoogleAuthProvider(),
-};
 export default FirebaseApp;
