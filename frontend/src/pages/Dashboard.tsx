@@ -11,12 +11,13 @@ interface Props {}
 const Dashboard: React.FC<Props> = () => {
   const [auth_user, setUser] = React.useState<string | null>('');
   const history = useHistory();
-  const [userToken, setToken] = React.useState<string>('');
+  // const [userToken, setToken] = React.useState<string>('');
 
-  const fetchAsset = async () => {
+  const fetchAsset = async (idToken: string) => {
     fetch('http://localhost:8080/dashboard', {
       headers: {
-        Authorization: `Bearer ${userToken}`,
+        // authorization: `Bearer ${idToken}`, // before
+        authorization: idToken, // now
       },
     })
       .then((res) => res.json())
@@ -25,20 +26,17 @@ const Dashboard: React.FC<Props> = () => {
       });
   };
 
-  const getToken = () => {
-    auth.currentUser?.getIdToken(true).then((idToken) => {
-      setToken(idToken);
-    });
-  };
-
   React.useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (!user) {
         history.push('/login');
       } else {
         setUser(user.email);
-        getToken();
-        fetchAsset();
+      }
+    });
+    auth.currentUser?.getIdToken(false).then((idToken) => {
+      if (idToken) {
+        fetchAsset(idToken);
       }
     });
   });
