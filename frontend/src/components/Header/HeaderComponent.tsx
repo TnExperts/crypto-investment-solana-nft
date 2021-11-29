@@ -53,36 +53,15 @@ const RenderMobileLinks: React.FC<MenuProps> = (props) => {
 };
 
 const Header: React.FC<Props> = () => {
-  // const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setAuth(event.target.checked);
-  // };
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-
-  // const handleMenuClick = (page: string) => {
-  //   setAnchorEl(null);
-  // };
-
   return (
     <Box sx={{ flexGrow: 1 }}>
-      {/* <FormGroup>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={auth}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup> */}
       <AppBar
         position="fixed"
         sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}
@@ -91,7 +70,6 @@ const Header: React.FC<Props> = () => {
           <div style={{ display: 'flex', flex: 1 }}>
             <h1>Crypto Trading 📈</h1>
           </div>
-          {/* {auth && ( */}
           <div>
             {isMobile ? (
               <>
@@ -137,7 +115,6 @@ const Header: React.FC<Props> = () => {
               </div>
             )}
           </div>
-          {/* )} */}
         </Toolbar>
       </AppBar>
     </Box>
