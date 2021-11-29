@@ -9,6 +9,14 @@ import DashboardHeader from '../components/DashboardComponents/DashboardHeader/D
 interface Props {}
 
 const Dashboard: React.FC<Props> = () => {
+  const fetchAsset = async () => {
+    fetch('http://localhost:8080/dashboard')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   const [auth_user, setUser] = React.useState<string | null>('');
 
   const history = useHistory();
@@ -18,10 +26,10 @@ const Dashboard: React.FC<Props> = () => {
         history.push('/login');
       } else {
         setUser(user.email);
-        console.log(auth_user);
+        fetchAsset();
       }
     });
-  }, []);
+  });
 
   return (
     <>
