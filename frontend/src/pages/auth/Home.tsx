@@ -1,75 +1,11 @@
 import React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-
-interface CardComponentProps {
-  title: string;
-  color1: string;
-  color2: string;
-}
+import CardComponent from '../../components/HomeCardComponent/CardComponent';
+import cards from '../../helpers/homeCardsData';
 
 interface Props {}
 
-const cards = [
-  {
-    id: 1,
-    title: 'Prices',
-    color1: '#ed0027',
-    color2: '#faaca8',
-  },
-  {
-    id: 2,
-    title: 'Market Cap',
-    color1: '#bdc3c7 ',
-    color2: '#dd2476',
-  },
-  {
-    id: 3,
-    title: 'Change %',
-    color1: '#00cdac',
-    color2: '#bdc3c7',
-  },
-  {
-    id: 4,
-    title: 'Price Chart',
-    color1: '#36d1dc',
-    color2: '#004e92',
-  },
-  {
-    id: 5,
-    title: 'Trade',
-    color1: '#a8e063',
-    color2: '#bdc3c7',
-  },
-  {
-    id: 6,
-    title: 'Win NFT!',
-    color1: '#faaca8',
-    color2: '#ff512f',
-  },
-];
-
-const CardComponent: React.FC<CardComponentProps> = (props) => {
-  return (
-    <div className="content">
-      <Card
-        sx={{
-          minWidth: 275,
-          background: `linear-gradient(${props.color1},${props.color2})`,
-          color: 'white',
-          transform: `rotateY(360deg)`,
-          transition: '0.3s',
-        }}
-      >
-        <CardContent>
-          <h4>{props.title}</h4>
-        </CardContent>
-      </Card>
-    </div>
-  );
-};
-
 const Home: React.FC<Props> = () => {
+  // View
   return (
     <div className="App">
       <header className="App-header">
