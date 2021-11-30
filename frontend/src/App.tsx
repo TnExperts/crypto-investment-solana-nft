@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './pages/auth/Home';
-import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
+import Home from './pages/LandingPage/Home';
+import Login from './pages/Auth/Login/Login';
+import Register from './pages/Auth/Register/Register';
 import Dashboard from './pages/Dashboard';
 import Header from './components/Header/HeaderComponent';
 
