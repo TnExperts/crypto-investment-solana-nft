@@ -1,5 +1,5 @@
 import React from 'react';
-import { auth } from '../../config/firebase';
+import { auth } from '../../../config/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';

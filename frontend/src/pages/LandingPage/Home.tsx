@@ -1,6 +1,6 @@
 import React from 'react';
-import CardComponent from '../../../components/HomeCardComponent/CardComponent';
-import cards from '../../../helpers/homeCardsData';
+import CardComponent from '../../components/HomeCardComponent/CardComponent';
+import cards from '../../helpers/homeCardsData';
 import './Home.css';
 interface Props {}
 

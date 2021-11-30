@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../config/firebase';
+import { auth } from '../../../config/firebase';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 
