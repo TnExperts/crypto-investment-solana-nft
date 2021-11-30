@@ -2,17 +2,18 @@ import express, { Request, Response, NextFunction, Application } from 'express';
 const cors = require('cors');
 const app: Application = express();
 
-import middleware from './middleware/accessToken';
+import middleware from './middleware/middlewares';
 
 app.use(cors());
 
-app.use(middleware.verifyAccessToken);
+app.use('*', middleware.verifyAccessToken);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
 });
 
 app.get('/dashboard', (req: Request, res: Response) => {
+  console.log(req.user);
   res.json({
     user: [
       {
