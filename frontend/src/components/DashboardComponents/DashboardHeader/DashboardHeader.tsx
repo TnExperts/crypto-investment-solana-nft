@@ -16,6 +16,9 @@ import ListItemText from '@mui/material/ListItemText';
 import GridViewIcon from '@mui/icons-material/GridView';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
+import DiamondIcon from '@mui/icons-material/Diamond';
 import RedeemIcon from '@mui/icons-material/Redeem';
 import { signOut } from 'firebase/auth';
 import { useHistory } from 'react-router-dom';
@@ -177,9 +180,22 @@ export default function MiniDrawer() {
 
             <ListItem sx={{ cursor: 'pointer' }}>
               <ListItemIcon>
-                <AccountBalanceWalletIcon sx={{ color: 'white' }} />
+                <AttachMoneyIcon sx={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Wallet" />
+              <ListItemText primary="Assets" />
+            </ListItem>
+
+            <ListItem sx={{ cursor: 'pointer' }}>
+              <ListItemIcon>
+                <DiamondIcon sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <ListItemText primary="Watchlist" />
+            </ListItem>
+            <ListItem sx={{ cursor: 'pointer' }}>
+              <ListItemIcon>
+                <CurrencyExchangeIcon sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <ListItemText primary="Trade" />
             </ListItem>
 
             <ListItem sx={{ cursor: 'pointer' }}>
