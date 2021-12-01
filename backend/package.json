@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.ts",
+    "dev": "nodemon --files src/app.ts",
     "start": "node dist/app.js",
     "build": "tsc -p ."
   },
@@ -16,6 +16,7 @@
     "@types/node": "^16.11.10",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "firebase": "^9.4.1",
     "firebase-admin": "^10.0.0",
     "nodemon": "^2.0.15",
     "ts-node": "^10.4.0",
