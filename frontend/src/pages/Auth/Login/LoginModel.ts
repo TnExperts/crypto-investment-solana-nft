@@ -1,4 +1,3 @@
-import React from 'react';
 import { observable, action, makeAutoObservable } from 'mobx';
 import { RouteComponentProps } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
