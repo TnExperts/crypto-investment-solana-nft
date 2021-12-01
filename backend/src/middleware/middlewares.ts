@@ -1,5 +1,5 @@
 import express, { Request, Response, NextFunction, Application } from 'express';
-const firebaseAdmin = require('../config/firebase');
+const { admin, db } = require('../config/firebase');
 
 class Middleware {
   constructor() {}
@@ -13,7 +13,7 @@ class Middleware {
       token = accessToken.split(' ')[1];
     }
     try {
-      const decoded = await firebaseAdmin.auth().verifyIdToken(token);
+      const decoded = await admin.auth().verifyIdToken(token);
       if (decoded) {
         req.user = decoded;
         return next();
