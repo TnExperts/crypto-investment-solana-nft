@@ -6,6 +6,7 @@ import Login from './pages/Auth/Login/Login';
 import Register from './pages/Auth/Register/Register';
 import Dashboard from './pages/Dashboard';
 import Header from './components/Header/HeaderComponent';
+import Assets from './pages/ProtectedRoutes/Cryptocurrecies/Assets';
 
 const App: React.FC<{}> = () => {
   return (
@@ -15,7 +16,9 @@ const App: React.FC<{}> = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/app/assets/" component={Assets} />
         <Route exact path="/dashboard" component={Dashboard} />
+        {/* <Route exact path="/dashboard" component={Dashboard} /> */}
       </Switch>
     </BrowserRouter>
   );
