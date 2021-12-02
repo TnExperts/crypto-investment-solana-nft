@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React from 'react';
 import AssetContainerComponent from '../components/DashboardComponents/AssetContainer/AssetContainerComponent';
 import { onAuthStateChanged } from '@firebase/auth';
@@ -21,6 +22,9 @@ const Dashboard: React.FC<Props> = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
@@ -32,7 +36,7 @@ const Dashboard: React.FC<Props> = () => {
         setUser(user.email);
       }
     });
-    auth.currentUser?.getIdToken(false).then((idToken) => {
+    auth.currentUser?.getIdToken(true).then((idToken) => {
       if (idToken) {
         fetchAsset(idToken);
       }
