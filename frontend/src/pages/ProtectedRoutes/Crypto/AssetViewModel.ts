@@ -13,7 +13,7 @@ class AssetViewModel implements IAssetViewModel {
   }
 
   @action setAssetName = (id: string) => {
-    this.assetModel.assetName = id;
+    this.assetModel.slug = id;
   };
 
   @computed get getAsset() {
