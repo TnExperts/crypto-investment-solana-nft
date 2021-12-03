@@ -12,17 +12,12 @@ type RouteParams = {
 
 const Asset: React.FC<Props> = () => {
   const { id } = useParams<RouteParams>();
-  const assetName = id[0].toUpperCase() + id.slice(1);
   const assetViewModel = new AssetViewModel();
 
   return (
     <div className="App">
       <div className="App-header">
-        <AssetContainer
-          viewModel={assetViewModel}
-          id={id}
-          assetName={assetName}
-        />
+        <AssetContainer viewModel={assetViewModel} id={id} />
       </div>
     </div>
   );
