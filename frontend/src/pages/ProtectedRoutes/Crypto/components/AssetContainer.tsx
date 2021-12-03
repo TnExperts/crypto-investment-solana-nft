@@ -24,23 +24,22 @@ const AssetContainer: React.FC<Props> = (props) => {
         }
       });
     }
-
     fetchData();
   }, []);
 
   return (
     <>
       <span className="header-asset">
-        {asset.map((asset) => (
-          <>
-            <img src={asset.logo} alt={asset.name} className="logo" />
-            <h1>
-              {asset.name} {asset.symbol}
-            </h1>
-          </>
-        ))}
+        <img
+          src={viewModel.assetModel.logo}
+          alt={viewModel.assetModel.name}
+          className="logo"
+        />
+        <h1>
+          {viewModel.assetModel.name} {viewModel.assetModel.symbol}
+        </h1>
+        <AssetQuickStats viewModel={viewModel} />
       </span>
-      <AssetQuickStats asset={asset} />
       <div className="container">
         <Grid
           container
@@ -49,7 +48,7 @@ const AssetContainer: React.FC<Props> = (props) => {
           alignItems="center"
         >
           <AssetPriceChart viewModel={viewModel} />
-          <AssetMetaData asset={asset} viewModel={viewModel} />
+          <AssetMetaData viewModel={viewModel} />
         </Grid>
       </div>
     </>
