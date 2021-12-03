@@ -1,0 +1,29 @@
+.container {
+  border-radius: 10px;
+  height: 70vh;
+  overflow: auto;
+  /* background-color: orange; */
+  width: 80vw;
+}
+.price-chart-container {
+  border-radius: 10px;
+  height: 70vh;
+  overflow: auto;
+  background-color: blue;
+  width: 45vw;
+}
+.asset-stats {
+  border-radius: 10px;
+  height: 70vh;
+  overflow: auto;
+  background-color: red;
+  width: 30vw;
+}
+
+.price-quick-stats {
+  border-radius: 10px;
+  height: 10vh;
+  background-color: orange;
+  width: 20vw;
+  margin-bottom: 10px;
+}
