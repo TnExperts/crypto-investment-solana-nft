@@ -51,24 +51,23 @@ app.get('/api/cryptocurrencies/:id', (req: Request, res: Response) => {
   fetch(url, options)
     .then((res: Response) => res.json())
     .then((data: any) => {
-      const build_data = {
-        id: data.id,
-        name: data.name,
-        symbol: data.symbol,
-        description: data.description.en,
-        learn: data.homepage,
-        image: data.image.small,
-        rank: data.market_cap_rank,
-        price: data.market_data.current_price.usd,
-        market_cap: data.market_data.market_cap.usd,
-        volume: data.market_data.total_volume.usd,
-        price_change_percentage_24h:
-          data.market_data.price_change_percentage_24h,
-      };
-      res.status(200).send(build_data);
+      res.status(200).send(data);
     })
     .catch((err: Response) => console.error('error:' + err));
 });
+
+app.get('/api/cryptocurrencies/chart/:id', (req: Request, res: Response) => {
+  const url = `https://api.coingecko.com/api/v3/coins/${req.params.id}/market_chart?vs_currency=usd&days=1`;
+  const options = { method: 'GET', headers: { Accept: 'application/json' } };
+
+  fetch(url, options)
+    .then((res: Response) => res.json())
+    .then((data: any) => {
+      res.status(200).send(data);
+    })
+    .catch((err: Response) => console.error('error:' + err));
+});
+
 const addUser = async (user: any) => {
   const userRef = db.collection('users').doc(user.uid);
   console.log(user.email, user);
