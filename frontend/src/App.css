@@ -78,3 +78,12 @@ button[type='submit']:hover {
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+.link {
+  text-decoration: none;
+  text-decoration-line: none;
+  color: white;
+}
+.link:hover {
+  color: #a8e063;
+}
