@@ -1,11 +1,11 @@
 import AssetModel from './AssetModel';
 import { action, computed } from 'mobx';
 
-interface IAssetModel {
+interface IAssetViewModel {
   assetModel: AssetModel;
 }
 
-class AssetViewModel implements IAssetModel {
+class AssetViewModel implements IAssetViewModel {
   assetModel: AssetModel;
 
   constructor() {
@@ -20,9 +20,17 @@ class AssetViewModel implements IAssetModel {
     return this.assetModel.fetchAsset();
   }
 
-  // @computed get getAssetPriceChart() {
-  //   return this.assetModel.fetchAssetPriceChart();
-  // }
+  @computed get getAssetPriceChart() {
+    return this.assetModel.fetchAssetPriceChart();
+  }
+
+  isPositive(value: string) {
+    if (value[0] !== '-') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 export default AssetViewModel;
