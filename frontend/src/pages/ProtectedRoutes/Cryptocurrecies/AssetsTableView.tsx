@@ -45,24 +45,18 @@ const AssetsTableView: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      <h1>Cryptocurrencies</h1>
+      <h1>Top 15 Cryptocurrencies</h1>
       <div className="box">
         <TableContainer>
           <Table
             size="small"
-            aria-label="simple table"
-            sx={{ backgroundImage: '#121214' }}
+            aria-label="small table"
+            sx={{ borderBottom: 'none' }}
           >
             <caption style={{ color: 'white' }}>
               <h3>Top 15 Cryptocurrency Table</h3>
             </caption>
-            <TableHead
-              sx={{
-                background: 'linear-gradient(#56ab2f,#a8e063)',
-                color: 'white',
-                height: '50px',
-              }}
-            >
+            <TableHead>
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell sx={{ color: 'white' }}>
@@ -84,7 +78,7 @@ const AssetsTableView: React.FC<Props> = (props: Props) => {
                   <h3>Market Cap</h3>
                 </TableCell>
                 <TableCell sx={{ color: 'white' }}>
-                  <h3>Volume(24h)</h3>
+                  <h3>Volume (24h)</h3>
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -122,14 +116,14 @@ const AssetsTableView: React.FC<Props> = (props: Props) => {
                   </TableCell>
                   {viewModel.isPositive(asset.percent_change_24h) ? (
                     <TableCell sx={{ color: 'green' }}>
-                      <p className="elem">
+                      <p className="elem indicator">
                         <ArrowDropUpIcon sx={{ marginTop: '15px' }} />
                         <h4>{asset.percent_change_24h}</h4>
                       </p>
                     </TableCell>
                   ) : (
                     <TableCell sx={{ color: 'red' }}>
-                      <p className="elem">
+                      <p className="elem indicator">
                         <ArrowDropDownIcon sx={{ marginTop: '15px' }} />
                         <h4>{asset.percent_change_24h}</h4>
                       </p>
