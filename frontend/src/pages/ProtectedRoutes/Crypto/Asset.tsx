@@ -1,8 +1,8 @@
 import React from 'react';
-// import AssetViewModel from './AssetViewModel';
-// import AssetTableView from './AssetTableView';
-// import './Asset.css';
 import { useParams } from 'react-router';
+import AssetContainer from './components/AssetContainer';
+import AssetViewModel from './AssetViewModel';
+import './Asset.css';
 
 interface Props {}
 
@@ -12,13 +12,18 @@ type RouteParams = {
 
 const Asset: React.FC<Props> = () => {
   const { id } = useParams<RouteParams>();
+  const assetName = id[0].toUpperCase() + id.slice(1);
+  const assetViewModel = new AssetViewModel();
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>{id}</h1>
-        {/* <AssetTableView viewModel={assetViewModel} /> */}
-      </header>
+      <div className="App-header">
+        <AssetContainer
+          viewModel={assetViewModel}
+          id={id}
+          assetName={assetName}
+        />
+      </div>
     </div>
   );
 };
