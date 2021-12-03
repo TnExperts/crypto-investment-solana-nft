@@ -5,8 +5,8 @@
   /* background-color: red; */
   width: 80vw;
 }
-
-Track .box::-webkit-scrollbar-track {
+/* Track  */
+.box::-webkit-scrollbar-track {
   box-shadow: inset 0 0 0px grey;
   border-radius: 50px;
 }
