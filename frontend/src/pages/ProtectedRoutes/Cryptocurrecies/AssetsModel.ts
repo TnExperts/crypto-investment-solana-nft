@@ -1,18 +1,5 @@
 import { observable, action, makeAutoObservable } from 'mobx';
-
-interface IAssetsModel {
-  rank: number;
-  id: string;
-  name: string;
-  symbol: string;
-  logo: string;
-  price: string;
-  market_cap: string;
-  percent_change_24h: string;
-  percent_change_7d: string;
-  volume_24h: string;
-  supply: string;
-}
+import { IAssetsModel } from './Interface/IAssetsModel';
 
 class AssetsModel {
   @observable assetsList: IAssetsModel[] = [];
