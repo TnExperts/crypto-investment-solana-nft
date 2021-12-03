@@ -15,6 +15,18 @@ class AssetsViewModel implements IAssetsModel {
   @computed get getAssets() {
     return this.assetsModel.fetchAsset();
   }
+
+  isPositive(value: string) {
+    if (value[0] !== '-') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  watchList(value: string) {
+    console.log(value);
+  }
 }
 
 export default AssetsViewModel;
