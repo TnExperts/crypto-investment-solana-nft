@@ -44,10 +44,8 @@ app.get('/api/cryptocurrencies', (req: Request, res: Response) => {
       console.log(err);
     });
 });
-app.get('/xyz', (req: Request, res: Response) => {
-  // const socket = new WebSocket('wss://ws-feed.pro.coinbase.com');
-
-  const url = 'https://api.coingecko.com/api/v3/coins/bitcoin';
+app.get('/api/cryptocurrencies/:id', (req: Request, res: Response) => {
+  const url = `https://api.coingecko.com/api/v3/coins/${req.params.id}`;
   const options = { method: 'GET', headers: { Accept: 'application/json' } };
 
   fetch(url, options)
@@ -61,13 +59,13 @@ app.get('/xyz', (req: Request, res: Response) => {
         learn: data.homepage,
         image: data.image.small,
         rank: data.market_cap_rank,
-        price: data.market_data.current_price.usd, //✅
-        market_cap: data.market_data.market_cap.usd, //✅
-        volume: data.market_data.total_volume.usd, //✅
+        price: data.market_data.current_price.usd,
+        market_cap: data.market_data.market_cap.usd,
+        volume: data.market_data.total_volume.usd,
         price_change_percentage_24h:
-          data.market_data.price_change_percentage_24h, //✅
+          data.market_data.price_change_percentage_24h,
       };
-      res.send(build_data);
+      res.status(200).send(build_data);
     })
     .catch((err: Response) => console.error('error:' + err));
 });
