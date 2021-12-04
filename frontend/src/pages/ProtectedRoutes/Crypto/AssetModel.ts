@@ -2,6 +2,7 @@ import { observable } from 'mobx';
 import { IAssetModel } from './Interface/IAssetModel';
 class AssetModel {
   @observable assetList: IAssetModel[] = [];
+  @observable priceChartList: number[][] = [];
   @observable slug: string = '';
   @observable rank: string = '';
   @observable id: string = '';
@@ -73,13 +74,11 @@ class AssetModel {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        return this.assetList;
+        return data;
       })
       .catch((err) => {
         console.log(err);
       });
   };
 }
-
 export default AssetModel;
