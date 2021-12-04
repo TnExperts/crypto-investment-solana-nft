@@ -56,14 +56,43 @@ app.get('/api/cryptocurrencies/:id', (req: Request, res: Response) => {
     .catch((err: Response) => console.error('error:' + err));
 });
 
+const convert_to_time_str = (time: number) => {
+  let date = new Date(time);
+  let dateStr = `${
+    date.getMonth() + 1
+  }/${date.getDate()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+  return dateStr;
+};
+
+interface IMarketDataObj {
+  Timestamp: string;
+  Price: number;
+}
+
+const parse_data = (data: number[][]) => {
+  const data_to_send: IMarketDataObj[] = [];
+  data.map((item: number[]) => {
+    data_to_send.push({
+      Timestamp: convert_to_time_str(item[0]),
+      Price: item[1],
+    });
+  });
+  return data_to_send;
+};
+
 app.get('/api/cryptocurrencies/chart/:id', (req: Request, res: Response) => {
-  const url = `https://api.coingecko.com/api/v3/coins/${req.params.id}/market_chart?vs_currency=usd&days=1`;
-  const options = { method: 'GET', headers: { Accept: 'application/json' } };
+  const url = `https://api.coingecko.com/api/v3/coins/${req.params.id}/market_chart?vs_currency=usd&days=max&interval=daily`;
+  const options = {
+    method: 'GET',
+    headers: { Accept: 'application/json' },
+  };
 
   fetch(url, options)
     .then((res: Response) => res.json())
     .then((data: any) => {
-      res.status(200).send(data);
+      const data_to_send = parse_data(data.prices);
+      console.log(data_to_send);
+      res.status(200).send(data_to_send);
     })
     .catch((err: Response) => console.error('error:' + err));
 });
