@@ -18,7 +18,7 @@ class LoginModel {
     this.isLoggingIn = true;
     signInWithEmailAndPassword(auth, this.email, this.password)
       .then((user) => {
-        history.push('/dashboard');
+        history.push('/cryptocurrencies');
       })
       .catch((error) => {
         this.isLoggingIn = false;
