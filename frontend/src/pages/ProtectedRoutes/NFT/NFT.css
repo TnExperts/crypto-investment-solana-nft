@@ -1,0 +1,25 @@
+.link {
+  text-decoration: none;
+  text-decoration-line: none;
+  color: white;
+}
+.link:hover {
+  color: #a8e063;
+}
+
+button[type='submit'] {
+  width: 30%;
+  background: -webkit-linear-gradient(left, #479e3f, #35aee2);
+  background-size: 200% 200%;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type='submit']:hover {
+  background: -webkit-linear-gradient(left, #479e3f, #78ffd6);
+  background-size: 200% 200%;
+}
