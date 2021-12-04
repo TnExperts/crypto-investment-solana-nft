@@ -13,7 +13,7 @@ class AssetsViewModel implements IAssetsModel {
   }
 
   @computed get getAssets() {
-    return this.assetsModel.fetchAsset();
+    return this.assetsModel.fetchAssets();
   }
 
   isPositive(value: string) {
