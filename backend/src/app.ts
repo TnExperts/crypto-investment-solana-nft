@@ -91,7 +91,6 @@ app.get('/api/cryptocurrencies/chart/:id', (req: Request, res: Response) => {
     .then((res: Response) => res.json())
     .then((data: any) => {
       const data_to_send = parse_data(data.prices);
-      console.log(data_to_send);
       res.status(200).send(data_to_send);
     })
     .catch((err: Response) => console.error('error:' + err));
