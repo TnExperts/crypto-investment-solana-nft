@@ -4,7 +4,7 @@ import { IAssetsModel } from './Interface/IAssetsModel';
 class AssetsModel {
   @observable assetsList: IAssetsModel[] = [];
 
-  fetchAsset = () => {
+  fetchAssets = () => {
     return fetch('http://localhost:8080/api/cryptocurrencies')
       .then((res) => res.json())
       .then((data) => {
@@ -22,7 +22,6 @@ class AssetsModel {
             percent_change_7d:
               item.market_data.price_change_percentage_7d.toLocaleString(),
             volume_24h: item.market_data.total_volume.usd.toLocaleString(),
-            supply: item.market_data.circulating_supply.toLocaleString(),
           });
         });
         return this.assetsList;
