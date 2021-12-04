@@ -11,8 +11,16 @@ interface Props {
   id: string;
 }
 
+interface IMarketDataObj {
+  Timestamp: string;
+  Prices: number;
+}
+
 const AssetContainer: React.FC<Props> = (props) => {
   const [asset, setAsset] = React.useState<IAssetModel[]>([]);
+  const [market_chart_data, setMarketChartData] = React.useState<
+    IMarketDataObj[]
+  >([]);
   const { viewModel, id } = props;
 
   React.useEffect(() => {
@@ -24,7 +32,16 @@ const AssetContainer: React.FC<Props> = (props) => {
         }
       });
     }
+    async function fetchPrices() {
+      viewModel.getAssetPriceChart.then((data) => {
+        if (data) {
+          setMarketChartData(data);
+        }
+      });
+    }
+
     fetchData();
+    fetchPrices();
   }, []);
 
   return (
@@ -47,7 +64,10 @@ const AssetContainer: React.FC<Props> = (props) => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <AssetPriceChart viewModel={viewModel} />
+          <AssetPriceChart
+            viewModel={viewModel}
+            market_chart_data={market_chart_data}
+          />
           <AssetMetaData viewModel={viewModel} />
         </Grid>
       </div>
