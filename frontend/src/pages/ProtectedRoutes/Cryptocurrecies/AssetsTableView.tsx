@@ -10,22 +10,9 @@ import TableRow from '@mui/material/TableRow';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { IAssetsModel } from './Interface/IAssetsModel';
 interface Props {
   viewModel: AssetsViewModel;
-}
-
-interface IAssetsModel {
-  rank: number;
-  id: string;
-  name: string;
-  symbol: string;
-  logo: string;
-  price: string;
-  market_cap: string;
-  percent_change_24h: string;
-  percent_change_7d: string;
-  volume_24h: string;
-  supply: string;
 }
 
 const AssetsTableView: React.FC<Props> = (props: Props) => {
@@ -116,33 +103,33 @@ const AssetsTableView: React.FC<Props> = (props: Props) => {
                   </TableCell>
                   {viewModel.isPositive(asset.percent_change_24h) ? (
                     <TableCell sx={{ color: 'green' }}>
-                      <p className="elem indicator">
+                      <span className="elem indicator">
                         <ArrowDropUpIcon sx={{ marginTop: '15px' }} />
                         <h4>{asset.percent_change_24h}</h4>
-                      </p>
+                      </span>
                     </TableCell>
                   ) : (
                     <TableCell sx={{ color: 'red' }}>
-                      <p className="elem indicator">
+                      <span className="elem indicator">
                         <ArrowDropDownIcon sx={{ marginTop: '15px' }} />
                         <h4>{asset.percent_change_24h}</h4>
-                      </p>
+                      </span>
                     </TableCell>
                   )}
 
                   {viewModel.isPositive(asset.percent_change_7d) ? (
                     <TableCell sx={{ color: 'green' }}>
-                      <p className="elem indicator">
+                      <span className="elem indicator">
                         <ArrowDropUpIcon sx={{ marginTop: '15px' }} />
                         <h4>{asset.percent_change_7d}</h4>
-                      </p>
+                      </span>
                     </TableCell>
                   ) : (
                     <TableCell sx={{ color: 'red' }}>
-                      <p className="elem indicator">
+                      <span className="elem indicator">
                         <ArrowDropDownIcon sx={{ marginTop: '15px' }} />
                         <h4>{asset.percent_change_7d}</h4>
-                      </p>
+                      </span>
                     </TableCell>
                   )}
                   <TableCell sx={{ color: 'white' }}>
