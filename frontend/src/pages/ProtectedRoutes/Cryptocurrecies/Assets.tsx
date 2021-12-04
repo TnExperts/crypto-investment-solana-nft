@@ -1,6 +1,6 @@
 import React from 'react';
 import AssetsViewModel from './AssetsViewModel';
-import AssetsTableView from './AssetsTableView';
+import AssetsTableView from './components/AssetsTableView';
 import './Assets.css';
 
 interface Props {}
