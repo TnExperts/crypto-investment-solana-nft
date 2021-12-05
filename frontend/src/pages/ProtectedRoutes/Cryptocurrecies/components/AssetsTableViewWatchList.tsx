@@ -13,14 +13,9 @@ const AssetsTableViewWatchList: React.FC<Props> = (props) => {
     <TableCell
       component="th"
       scope="row"
-      onClick={() => viewModel.watchList(name)}
+      onClick={() => viewModel.add_to_watchlist(name)}
     >
-      <DiamondIcon
-        sx={{ color: 'gray', cursor: 'pointer' }}
-        // onClick={() => {
-        // 	viewModel.setSelectedAsset(asset);
-        // }}
-      ></DiamondIcon>
+      <DiamondIcon sx={{ color: 'gray', cursor: 'pointer' }}></DiamondIcon>
     </TableCell>
   );
 };
