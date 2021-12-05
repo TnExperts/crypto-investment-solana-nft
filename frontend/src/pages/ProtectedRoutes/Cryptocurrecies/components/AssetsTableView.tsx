@@ -53,7 +53,7 @@ const AssetsTableView: React.FC<Props> = (props: Props) => {
                 <TableRow key={asset.rank}>
                   <AssetsTableViewWatchList
                     viewModel={viewModel}
-                    name={asset.name}
+                    name={asset.id}
                   />
                   <AssetsTableViewRank rank={asset.rank} />
                   <AssetsTableViewName
