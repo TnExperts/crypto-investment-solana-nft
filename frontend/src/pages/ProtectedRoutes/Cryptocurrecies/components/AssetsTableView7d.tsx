@@ -15,14 +15,14 @@ const AssetsTableView7d: React.FC<Props> = (props) => {
       {viewModel.isPositive(percent_change_7d) ? (
         <TableCell sx={{ color: 'green' }}>
           <span className="elem indicator">
-            <ArrowDropUpIcon sx={{ marginTop: '15px' }} />
+            <ArrowDropUpIcon />
             <h4>{percent_change_7d}</h4>
           </span>
         </TableCell>
       ) : (
         <TableCell sx={{ color: 'red' }}>
           <span className="elem indicator">
-            <ArrowDropDownIcon sx={{ marginTop: '15px' }} />
+            <ArrowDropDownIcon />
             <h4>{percent_change_7d}</h4>
           </span>
         </TableCell>
