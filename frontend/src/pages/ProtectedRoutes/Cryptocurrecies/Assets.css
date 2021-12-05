@@ -25,23 +25,12 @@
 
 .elem {
   display: flex;
-}
-.logo {
-  align-items: baseline;
-  justify-content: center;
-  align-content: center;
-  margin-right: 20px;
-  margin-top: 10px;
-  height: 20px;
-  width: 20px;
-  font-size: 20px;
-  border-radius: 10px;
-}
-
-.indicator {
-  margin-top: 15px;
+  align-items: center;
 }
 
 .MuiTable-root {
   background: #121214;
+}
+.table-asset-logo {
+  margin-right: 10px;
 }
