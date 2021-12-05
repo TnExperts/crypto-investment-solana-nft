@@ -4,7 +4,11 @@ const {
   check_if_asset_is_in_watchlist,
 } = require('../helper/helpers');
 const fetch = require('node-fetch');
-const { add_new_user, watchlist_handler_db } = require('../db/db_operations');
+const {
+  add_new_user,
+  watchlist_handler_db,
+  get_user_watch_list_db,
+} = require('../db/db_operations');
 
 const options = {
   method: 'GET',
@@ -67,9 +71,34 @@ const watchlist_handler = async (
   watchlist_handler_db(user, to_add_watchlist_asset);
 };
 
+const get_user_watchlist = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const user = req.user;
+  let watchlist_array = await get_user_watch_list_db(user.uid);
+  watchlist_array = watchlist_array.reverse();
+  const build_url = watchlist_array.map((asset: string) => {
+    return `https://api.coingecko.com/api/v3/coins/${asset}`;
+  });
+  try {
+    const req = await Promise.all(
+      build_url.map((url: string) => {
+        return fetch(url, options);
+      })
+    );
+    const data = await Promise.all(req.map((r: any) => r.json()));
+    res.status(200).send(data);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   get_cryptocurrencies,
   get_crypto,
   get_crypto_market_history,
   watchlist_handler,
+  get_user_watchlist,
 };
