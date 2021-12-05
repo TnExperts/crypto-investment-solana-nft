@@ -9,17 +9,19 @@ Crypto Trading is a web app that displays information about the price, market ca
 <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/></a> 
 <a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/></a>
 
+## 🤳 Project Screenshots
+
 ## 🎯 Project Scope
 
 | Requirements                                                                                                   | Status |
 | -------------------------------------------------------------------------------------------------------------- | ------ |
-| Use of a modern JS Library / Framework like React, Angular, etc                                                |        |
-| Create an application that can be interacted with in a minimum of three different ways by the user             |        |
-| The usage of a specified architectural pattern (MVC, MVP, MWM,etc.)                                            |        |
-| Integration with a backend service developed by you with CRUD(create, read, update, delete) operations         |        |
-| Integration with a 3rd party RESTful API.                                                                      |        |
-| Usage of at least 5 UI components from the material-ui/@core                                                   |        |
-| An example of a reusable component that you have created and used in the app (e.g. Ul component, service, etc) |        |
+| Use of a modern JS Library / Framework like React, Angular, etc                                                |   ✅     |
+| Create an application that can be interacted with in a minimum of three different ways by the user             |   ✅     |
+| The usage of a specified architectural pattern (MVC, MVP, MWM,etc.)                                            |   ✅     |
+| Integration with a backend service developed by you with CRUD(create, read, update, delete) operations         |   ✅     |
+| Integration with a 3rd party RESTful API.                                                                      |   ✅     |
+| Usage of at least 5 UI components from the material-ui/@core                                                   |   ✅     |
+| An example of a reusable component that you have created and used in the app (e.g. Ul component, service, etc) |   ✅     |
 
 ## 🔬 Functionalities
 
@@ -27,8 +29,7 @@ Crypto Trading is a web app that displays information about the price, market ca
 | ----------------------------------------------------------------------------------------------------------------------- |
 |                                                                                                                         |
 | View prices, market cap, change %, and price charts of various cryptocurrencies                                         |
-| Trade<br> &nbsp; &nbsp;→ Buy / Sell<br> &nbsp; &nbsp;→ Use a trading bot that executes the target price set by the user |
-| View portfolio                                                                                                          |
+| View Watchlist                                                                                                          |
 | Register                                                                                                                |
 | Login                                                                                                                   |
 | Logout                                                                                                                  |
