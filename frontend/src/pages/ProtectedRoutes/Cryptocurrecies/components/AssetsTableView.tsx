@@ -54,6 +54,7 @@ const AssetsTableView: React.FC<Props> = (props: Props) => {
                   <AssetsTableViewWatchList
                     viewModel={viewModel}
                     name={asset.id}
+                    is_in_watchlist={asset.is_in_watchlist}
                   />
                   <AssetsTableViewRank rank={asset.rank} />
                   <AssetsTableViewName
