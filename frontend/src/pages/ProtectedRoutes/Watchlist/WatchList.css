@@ -48,3 +48,10 @@
   height: 20px;
   margin-right: 10px;
 }
+.green-indicator {
+  color: green;
+}
+
+.red-indicator {
+  color: red;
+}
