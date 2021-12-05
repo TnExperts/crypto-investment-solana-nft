@@ -5,17 +5,26 @@ import AssetsViewModel from '../AssetsViewModel';
 interface Props {
   viewModel: AssetsViewModel;
   name: string;
+  is_in_watchlist: boolean;
 }
 
 const AssetsTableViewWatchList: React.FC<Props> = (props) => {
-  const { viewModel, name } = props;
+  const { viewModel, name, is_in_watchlist } = props;
+
   return (
     <TableCell
       component="th"
       scope="row"
-      onClick={() => viewModel.add_to_watchlist(name)}
+      onClick={() => {
+        viewModel.check_watchlist(name);
+        window.location.reload();
+      }}
     >
-      <DiamondIcon sx={{ color: 'gray', cursor: 'pointer' }}></DiamondIcon>
+      {is_in_watchlist ? (
+        <DiamondIcon sx={{ color: '#6DD5FA', cursor: 'pointer' }}></DiamondIcon>
+      ) : (
+        <DiamondIcon sx={{ color: 'gray', cursor: 'pointer' }}></DiamondIcon>
+      )}
     </TableCell>
   );
 };
