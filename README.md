@@ -43,7 +43,7 @@ Crypto Trading is a web app that displays information about the price, market ca
 | Integration with a backend service developed by you with CRUD(create, read, update, delete) operations         | ✅     | RESTful API with NodeJs, Express, Firestore.              |
 | Integration with a 3rd party RESTful API.                                                                      | ✅     | CoinGecko API                                             |
 | Usage of at least 5 UI components from the material-ui/@core                                                   | ✅     | Table, Cards, Icons, Drawer, NavBar, Grid, Buttons, Lists |
-| An example of a reusable component that you have created and used in the app (e.g. Ul component, service, etc) | ✅     |                                                           |
+| An example of a reusable component that you have created and used in the app (e.g. Ul component, service, etc) | ✅     | UI Component, Firestore Db, functions, Routes                                                          |
 
 ## 🔬 Functionalities
 
