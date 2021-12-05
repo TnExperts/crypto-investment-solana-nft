@@ -1,4 +1,4 @@
-import { observable, action, makeAutoObservable } from 'mobx';
+import { observable } from 'mobx';
 import { IAssetsModel } from './Interface/IAssetsModel';
 
 class AssetsModel {
@@ -23,7 +23,14 @@ class AssetsModel {
   };
 
   fetchAssets = () => {
-    return fetch('http://localhost:8080/api/cryptocurrencies')
+    let token = localStorage.getItem('user');
+    return fetch('http://localhost:8080/api/cryptocurrencies', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         data.forEach((item: any) => {

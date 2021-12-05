@@ -56,7 +56,14 @@ class AssetModel {
   }
 
   fetchAsset = () => {
-    return fetch(`http://localhost:8080/api/cryptocurrencies/${this.slug}`)
+    let token = localStorage.getItem('user');
+    return fetch(`http://localhost:8080/api/cryptocurrencies/${this.slug}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         this.setDataAfterFetch(data);
@@ -69,8 +76,16 @@ class AssetModel {
   };
 
   fetchAssetPriceChart = () => {
+    let token = localStorage.getItem('user');
     return fetch(
-      `http://localhost:8080/api/cryptocurrencies/chart/${this.slug}`
+      `http://localhost:8080/api/cryptocurrencies/chart/${this.slug}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      }
     )
       .then((res) => res.json())
       .then((data) => {
