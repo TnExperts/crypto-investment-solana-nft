@@ -9,4 +9,5 @@ export interface IAssetsModel {
   percent_change_24h: string;
   percent_change_7d: string;
   volume_24h: string;
+  is_in_watchlist: boolean;
 }
