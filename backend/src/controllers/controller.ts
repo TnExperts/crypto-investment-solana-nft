@@ -1,7 +1,10 @@
 import express, { Request, Response, NextFunction, Application } from 'express';
-const { parse_data } = require('../helper/helpers');
+const {
+  parse_data,
+  check_if_asset_is_in_watchlist,
+} = require('../helper/helpers');
 const fetch = require('node-fetch');
-const { add_new_user, add_asset_to_watchlist } = require('../db/db_operations');
+const { add_new_user, watchlist_handler_db } = require('../db/db_operations');
 
 const options = {
   method: 'GET',
@@ -19,7 +22,8 @@ const get_cryptocurrencies = async (
   try {
     const response = await fetch(url, options);
     const data = await response.json();
-    res.status(200).send(data);
+    const to_send_data = await check_if_asset_is_in_watchlist(data, req.user);
+    res.status(200).send(to_send_data);
   } catch (err) {
     console.error(err);
   }
@@ -52,7 +56,7 @@ const get_crypto_market_history = async (
   }
 };
 
-const add_to_watchlist = async (
+const watchlist_handler = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -60,12 +64,12 @@ const add_to_watchlist = async (
   // add user to db
   let user = req.user;
   const to_add_watchlist_asset = req.body.value;
-  add_asset_to_watchlist(user, to_add_watchlist_asset);
+  watchlist_handler_db(user, to_add_watchlist_asset);
 };
 
 module.exports = {
   get_cryptocurrencies,
   get_crypto,
   get_crypto_market_history,
-  add_to_watchlist,
+  watchlist_handler,
 };
