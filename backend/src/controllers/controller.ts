@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction, Application } from 'express';
 const { parse_data } = require('../helper/helpers');
 const fetch = require('node-fetch');
+const { add_new_user, add_asset_to_watchlist } = require('../db/db_operations');
 
 const options = {
   method: 'GET',
@@ -12,6 +13,8 @@ const get_cryptocurrencies = async (
   res: Response,
   next: NextFunction
 ) => {
+  const user = req.user;
+  add_new_user(user);
   const url = `https://api.coingecko.com/api/v3/coins?per_page=15`;
   try {
     const response = await fetch(url, options);
@@ -56,11 +59,13 @@ const add_to_watchlist = async (
 ) => {
   // add user to db
   let user = req.user;
-  addUser(user);
+  const to_add_watchlist_asset = req.body.value;
+  add_asset_to_watchlist(user, to_add_watchlist_asset);
 };
 
 module.exports = {
   get_cryptocurrencies,
   get_crypto,
   get_crypto_market_history,
+  add_to_watchlist,
 };
