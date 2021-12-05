@@ -14,7 +14,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
+// import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import RedeemIcon from '@mui/icons-material/Redeem';
 import { signOut } from 'firebase/auth';
@@ -109,8 +109,6 @@ export default function MiniDrawer() {
   const logOut = () => {
     signOut(auth)
       .then(() => {
-        // remove user from local storage to log user out
-        localStorage.removeItem('user');
         // Sign-out successful.
         history.push('/login');
       })
@@ -187,7 +185,7 @@ export default function MiniDrawer() {
                 <h4>My Watchlist</h4>
               </ListItem>
             </Link>
-            <Link to="/trade" className="link elem">
+            {/* <Link to="/trade" className="link elem">
               <ListItem>
                 <ListItemIcon>
                   <CurrencyExchangeIcon sx={{ color: 'white' }} />
@@ -195,7 +193,7 @@ export default function MiniDrawer() {
 
                 <h4>Trade</h4>
               </ListItem>
-            </Link>
+            </Link> */}
             <Link to="/nft" className="link elem">
               <ListItem>
                 <ListItemIcon>
