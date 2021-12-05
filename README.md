@@ -12,7 +12,10 @@ Crypto Trading is a web app that displays information about the price, market ca
 ## 🤳 Project Screenshots
 
 ---
+### Landing Page
 
+![Landing Page](./readme_assets/LandingPage.png)
+  
 ### Login Page
 
 ![Login](./readme_assets/Login.png)
