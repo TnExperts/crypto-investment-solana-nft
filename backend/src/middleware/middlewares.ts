@@ -24,4 +24,5 @@ class Middleware {
   }
 }
 const middleware = new Middleware();
-export default middleware;
+
+module.exports = middleware;
