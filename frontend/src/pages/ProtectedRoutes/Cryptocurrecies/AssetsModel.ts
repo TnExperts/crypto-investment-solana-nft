@@ -17,20 +17,27 @@ class AssetsModel {
       percent_change_7d:
         data.market_data.price_change_percentage_7d.toLocaleString(),
       volume_24h: data.market_data.total_volume.usd.toLocaleString(),
+      is_in_watchlist: data.is_in_watchlist,
     };
     return obj;
   };
-
-  fetchAssets = () => {
+  get_options = (method_type: string, body: any) => {
     const token = localStorage.getItem('user');
-    const url = 'http://localhost:8080/api/cryptocurrencies';
     const options = {
-      method: 'GET',
+      method: method_type,
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
+      body: body,
     };
+    return options;
+  };
+
+  fetchAssets = () => {
+    const url = 'http://localhost:8080/api/cryptocurrencies';
+    const options = this.get_options('GET', null);
+
     return fetch(url, options)
       .then((res) => res.json())
       .then((data) => {
@@ -44,30 +51,23 @@ class AssetsModel {
       });
   };
 
-  add_to_watchlist(value: string) {
-    const token = localStorage.getItem('user');
+  check_watchlist = (value: string) => {
     const url = 'http://localhost:8080/api/watchlist';
+    const body = JSON.stringify({
+      value,
+    });
+    let options = this.get_options('POST', body);
 
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        value,
-      }),
-    };
-
-    fetch(url, options)
+    return fetch(url, options)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        const result = data.find((item: any) => item.value === value);
+        return result;
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 }
 
 export default AssetsModel;
