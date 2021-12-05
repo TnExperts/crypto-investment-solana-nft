@@ -1,12 +1,15 @@
 import express, { Request, Response, NextFunction, Application } from 'express';
 const cors = require('cors');
-const app: Application = express();
-const { admin, db } = require('./config/firebase');
-import middleware from './middleware/middlewares';
 const fetch = require('node-fetch');
+const app: Application = express();
+
+import middleware from './middleware/middlewares';
+const { admin, db } = require('./config/firebase');
+const { parse_data } = require('./helper/helpers');
+
 require('dotenv').config();
+
 app.use(cors());
-const { convert_to_time_str, parse_data } = require('./helper/helpers');
 
 app.use(middleware.verifyAccessToken);
 
@@ -16,7 +19,6 @@ app.get('/api/cryptocurrencies', (req: Request, res: Response) => {
   fetch(url, options)
     .then((res: Response) => res.json())
     .then((data: any) => {
-      console.log(data);
       res.status(200).send(data);
     })
     .catch((err: Response) => {
@@ -52,26 +54,10 @@ app.get('/api/cryptocurrencies/chart/:id', (req: Request, res: Response) => {
     .catch((err: Response) => console.error('error:' + err));
 });
 
-app.get('/dashboard', (req: Request, res: Response) => {
+app.post('/api/watchlist', (req: Request, res: Response) => {
   // add user to db
   let user = req.user;
   addUser(user);
-  res.json({
-    user: [
-      {
-        name: 'bob',
-        age: 20,
-      },
-      {
-        name: 'alice',
-        age: 21,
-      },
-      {
-        name: 'tom',
-        age: 22,
-      },
-    ],
-  });
 });
 
 app.listen(8080, () => {
