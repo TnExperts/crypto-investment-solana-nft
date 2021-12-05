@@ -32,7 +32,7 @@ const delete_asset_from_watchlist = async (
   });
 };
 
-const check_if_asset_is_in_watchlist_db = async (user: any) => {
+const get_user_watch_list_db = async (user: any) => {
   const check_watchlist = db.collection('users').doc(user);
   const userRef = await check_watchlist.get();
   if (userRef.exists) {
@@ -60,6 +60,6 @@ const watchlist_handler_db = async (
 
 module.exports = {
   add_new_user,
-  check_if_asset_is_in_watchlist_db,
+  get_user_watch_list_db,
   watchlist_handler_db,
 };
