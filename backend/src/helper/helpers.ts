@@ -1,4 +1,5 @@
 import { IMarketDataObj } from '../interface/IMarketChart';
+const { check_if_asset_is_in_watchlist_db } = require('../db/db_operations');
 
 const convert_to_time_str = (time: number) => {
   let date = new Date(time);
@@ -19,6 +20,21 @@ const parse_data = (data: number[][]) => {
   return data_to_send;
 };
 
+const check_if_asset_is_in_watchlist = async (data: any, user: any) => {
+  const watchlist_array = await check_if_asset_is_in_watchlist_db(user.uid);
+  const arr = await watchlist_array;
+  let to_send_data = data.map((item: any) => {
+    if (arr.includes(item.id)) {
+      item.is_in_watchlist = true;
+    } else {
+      item.is_in_watchlist = false;
+    }
+    return item;
+  });
+  return to_send_data;
+};
+
 module.exports = {
   parse_data,
+  check_if_asset_is_in_watchlist,
 };
