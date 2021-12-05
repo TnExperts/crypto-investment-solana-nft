@@ -1,10 +1,14 @@
 import express, { Request, Response, NextFunction, Application } from 'express';
 
+const bodyParser = require('body-parser');
 const app: Application = express();
 const cors = require('cors');
 
+//very important to use this in order to parse the body of the request
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 const middleware = require('./middleware/middlewares');
-// const { admin, db } = require('./config/firebase');
 const routes = require('./routes/routes');
 
 require('dotenv').config();
