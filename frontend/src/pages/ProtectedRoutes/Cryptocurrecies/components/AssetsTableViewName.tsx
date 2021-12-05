@@ -13,7 +13,7 @@ const AssetsTableViewPrice: React.FC<Props> = (props) => {
   return (
     <TableCell component="th" scope="row">
       <Link to={`/cryptocurrencies/${id}`} className="link elem">
-        <img src={logo} alt={name} className="logo" />
+        <img src={logo} alt={name} className="table-asset-logo" />
         <h4>
           {name} {symbol}
         </h4>
