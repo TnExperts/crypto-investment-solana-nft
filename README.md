@@ -2,7 +2,7 @@
 
 Crypto Trading is a web app that displays information about the price, market cap, change in price over time, price charts of various cryptocurrencies like Bitcoin and Ethereum. The app also lets users add assets to their watchlist.
 
-![Website] (https://ecstatic-golick-c6d745.netlify.app/)
+[Website] (https://ecstatic-golick-c6d745.netlify.app/)
 
 <h3 align="left">Built with:</h3>
 <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="typescript" width="40" height="40"/></a> 
