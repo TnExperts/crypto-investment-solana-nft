@@ -18,7 +18,7 @@ const ProtectedRoute: React.FC<{}> = (props) => {
         });
       }
     });
-  }, []);
+  }, [history]);
 
   return <div>{children}</div>;
 };
