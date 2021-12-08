@@ -32,7 +32,7 @@ const AssetsTableView: React.FC<Props> = (props: Props) => {
       });
     }
     fetchData();
-  }, []);
+  }, [viewModel]);
 
   return (
     <>
