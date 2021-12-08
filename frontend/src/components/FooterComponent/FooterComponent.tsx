@@ -12,15 +12,17 @@ const FooterComponent: React.FC<{}> = () => {
     <footer className="footer">
       <div className="footerContainer">
         <h5 className="footerText">{`built by @${HANDLE}`}</h5>
-        <Link
-          to={{ pathname: `${TWITTER_LINK}` }}
+        <a
+          href={TWITTER_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{ paddingRight: '10px' }}
         >
           <TwitterIcon sx={{ color: '#1DA1F2' }} />
-        </Link>
-        <Link to={{ pathname: `${GITHUB_LINK}` }}>
+        </a>
+        <a href={GITHUB_LINK} target="_blank" rel="noopener noreferrer">
           <GitHubIcon sx={{ color: 'white' }} />
-        </Link>
+        </a>
       </div>
     </footer>
   );
