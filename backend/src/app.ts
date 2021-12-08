@@ -1,3 +1,4 @@
+/* eslint-disable import/first */
 import express, { Request, Response, NextFunction, Application } from 'express';
 
 const bodyParser = require('body-parser');
@@ -16,9 +17,10 @@ require('dotenv').config();
 app.use(cors());
 
 app.use(middleware.verifyAccessToken);
-
 app.use('/api', routes);
 
-app.listen(8080, () => {
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
   console.log('Server started...');
 });
