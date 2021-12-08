@@ -20,7 +20,7 @@ const WatchListContainer: React.FC<Props> = () => {
       });
     }
     fetchData();
-  }, []);
+  }, [watchlistViewModel]);
 
   return (
     <div className="box-watchlist">
