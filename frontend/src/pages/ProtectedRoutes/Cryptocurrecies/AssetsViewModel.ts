@@ -25,7 +25,7 @@ class AssetsViewModel implements IAssetsModel {
   }
 
   check_watchlist(value: string) {
-    this.assetsModel.check_watchlist(value);
+    return this.assetsModel.check_watchlist(value);
   }
 }
 
