@@ -54,19 +54,25 @@ class AssetModel {
     };
     return obj;
   }
-
-  fetchAsset = () => {
-    let token = localStorage.getItem('user');
-    const url = `http://localhost:8080/api/cryptocurrencies/${this.slug}`;
-    const headers = {
-      method: 'GET',
+  
+  get_options = (method_type: string, body: any) => {
+    const token = localStorage.getItem('user');
+    const options = {
+      method: method_type,
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
+      body: body,
     };
+    return options;
+  };
 
-    return fetch(url, headers)
+  fetchAsset = () => {
+    const url = `https://crypto-app-tapa.herokuapp.com/api/cryptocurrencies/${this.slug}`;
+    const options = this.get_options('GET', null);
+
+    return fetch(url, options)
       .then((res) => res.json())
       .then((data) => {
         this.setDataAfterFetch(data);
@@ -79,17 +85,10 @@ class AssetModel {
   };
 
   fetchAssetPriceChart = () => {
-    let token = localStorage.getItem('user');
-    const url = `http://localhost:8080/api/cryptocurrencies/chart/${this.slug}`;
-    const headers = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    };
+    const url = `https://crypto-app-tapa.herokuapp.com/api/cryptocurrencies/chart/${this.slug}`;
+    const options = this.get_options('GET', null);
 
-    return fetch(url, headers)
+    return fetch(url, options)
       .then((res) => res.json())
       .then((data) => {
         return data;
