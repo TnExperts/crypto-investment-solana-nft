@@ -1,6 +1,5 @@
 import React from 'react';
 import DashboardHeader from '../../../components/DashboardNavBar/DashboardHeader';
-import { Alert, AlertTitle, Button, Link } from '@mui/material';
 import './NFT.css';
 
 const NFT = () => {
@@ -21,33 +20,11 @@ const NFT = () => {
           console.log('public key: ', res.publicKey.toString());
         }
       } else {
+        alert('Phantom is not connected');
         setPhantomFound(false);
       }
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const displayAlert = () => {
-    if (isPhantomFound && !phantomWalletAddress) {
-      return (
-        <>
-          <Alert severity="success">
-            <AlertTitle>Look at you, you got Phantom! Very cool.</AlertTitle>
-          </Alert>
-        </>
-      );
-    } else if (!isPhantomFound && !phantomWalletAddress) {
-      return (
-        <>
-          <Alert severity="error">
-            <AlertTitle>
-              Hmm...seems that you don't have Phantom!{' '}
-              <Link className="link1">Install here</Link>
-            </AlertTitle>
-          </Alert>
-        </>
-      );
     }
   };
 
@@ -87,7 +64,6 @@ const NFT = () => {
       <DashboardHeader />
       <div className="App">
         <div className="App-header">
-          {displayAlert()}
           <h1>Mint NFT</h1>
           <h3>
             Thank you for using Crypto Trading, it's time for a treat! :&#x29;
