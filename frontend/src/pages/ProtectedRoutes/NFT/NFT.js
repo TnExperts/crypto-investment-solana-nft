@@ -2,7 +2,6 @@ import React from 'react';
 import DashboardHeader from '../../../components/DashboardNavBar/DashboardHeader';
 import { Alert, AlertTitle, Button, Link } from '@mui/material';
 import './NFT.css';
-import { isConstructorDeclaration } from 'typescript';
 
 const NFT = () => {
   const [isPhantomFound, setPhantomFound] = React.useState(false);
