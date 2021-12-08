@@ -1,8 +1,6 @@
 # 📈 Crypto Trading
 
-Crypto Trading is a web app that displays information about the price, market cap, change in price over time, price charts of various cryptocurrencies like Bitcoin and Ethereum. The app also lets users add assets to their watchlist.
-
-[Website](crypto-trading-btc.netlify.app)
+Crypto Trading is a web app that displays information about the price, market cap, change in price over time, price charts of various cryptocurrencies like Bitcoin and Ethereum. The app also lets users take add assets to their watchlist.
 
 <h3 align="left">Built with:</h3>
 <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="typescript" width="40" height="40"/></a> 
@@ -14,10 +12,7 @@ Crypto Trading is a web app that displays information about the price, market ca
 ## 🤳 Project Screenshots
 
 ---
-### Landing Page
 
-![Landing Page](./readme_assets/LandingPage.png)
-  
 ### Login Page
 
 ![Login](./readme_assets/Login.png)
@@ -48,7 +43,7 @@ Crypto Trading is a web app that displays information about the price, market ca
 | Integration with a backend service developed by you with CRUD(create, read, update, delete) operations         | ✅     | RESTful API with NodeJs, Express, Firestore.              |
 | Integration with a 3rd party RESTful API.                                                                      | ✅     | CoinGecko API                                             |
 | Usage of at least 5 UI components from the material-ui/@core                                                   | ✅     | Table, Cards, Icons, Drawer, NavBar, Grid, Buttons, Lists |
-| An example of a reusable component that you have created and used in the app (e.g. Ul component, service, etc) | ✅     | UI Component, Firestore Db, functions, Routes                                                          |
+| An example of a reusable component that you have created and used in the app (e.g. Ul component, service, etc) | ✅     | UI Component, Firestore Db, functions, Routes             |
 
 ## 🔬 Functionalities
 
