@@ -35,7 +35,7 @@ class AssetsModel {
   };
 
   fetchAssets = () => {
-    const url = 'http://localhost:8080/api/cryptocurrencies';
+    const url = 'https://crypto-app-tapa.herokuapp.com/api/cryptocurrencies';
     const options = this.get_options('GET', null);
 
     return fetch(url, options)
@@ -52,7 +52,7 @@ class AssetsModel {
   };
 
   check_watchlist = (value: string) => {
-    const url = 'http://localhost:8080/api/watchlist';
+    const url = 'https://crypto-app-tapa.herokuapp.com/api/watchlist';
     const body = JSON.stringify({
       value,
     });
@@ -61,8 +61,7 @@ class AssetsModel {
     return fetch(url, options)
       .then((res) => res.json())
       .then((data) => {
-        const result = data.find((item: any) => item.value === value);
-        return result;
+        return data;
       })
       .catch((err) => {
         console.log(err);

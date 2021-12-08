@@ -30,7 +30,7 @@ class WatchListModel {
   };
 
   fetchWatchList = () => {
-    const url = 'http://localhost:8080/api/watchlist';
+    const url = 'https://crypto-app-tapa.herokuapp.com/api/watchlist';
     const options = this.get_options('GET', null);
 
     return fetch(url, options)
