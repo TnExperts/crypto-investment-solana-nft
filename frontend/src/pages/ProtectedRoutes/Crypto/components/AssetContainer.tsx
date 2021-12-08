@@ -42,7 +42,7 @@ const AssetContainer: React.FC<Props> = (props) => {
 
     fetchData();
     fetchPrices();
-  }, [asset]);
+  }, [asset, id, viewModel]);
 
   return (
     <>
