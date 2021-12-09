@@ -316,13 +316,9 @@ const CandyMachine = ({ walletAddress }) => {
 
   return (
     <div className="machine-container">
-      <h3>{`Drop Date: ${machineStats.liveMachineDataFormatted}`}</h3>
+      {/* <h3>{`Drop Date: ${machineStats.liveMachineDataFormatted}`}</h3> */}
       <h4>{`Items Minted: ${machineStats.itemsRedeemedInMachine} / ${machineStats.itemsAvailableInMachine}`}</h4>
-      <button
-        className="cta-button mint-button"
-        type="submit"
-        onClick={mintToken}
-      >
+      <button className="cta-button mint-button" onClick={mintToken}>
         Mint NFT
       </button>
     </div>
