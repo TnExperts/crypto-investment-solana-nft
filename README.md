@@ -39,15 +39,15 @@ Crypto Trading is a web app that displays information about the price, market ca
 
 ## 🎯 Project Scope
 
-| Requirements                                                                                                   | Status | Details                                                   |
-| -------------------------------------------------------------------------------------------------------------- | ------ | --------------------------------------------------------- |
-| Use of a modern JS Library / Framework like React, Angular, etc                                                | ✅     | React                                                     |
-| Create an application that can be interacted with in a minimum of three different ways by the user             | ✅     | Login/Register, Cryptocurrencies Table View, Watchlist    |
-| The usage of a specified architectural pattern (MVC, MVP, MWM,etc.)                                            | ✅     | MVVM                                                      |
-| Integration with a backend service developed by you with CRUD(create, read, update, delete) operations         | ✅     | RESTful API with NodeJs, Express, Firestore.              |
-| Integration with a 3rd party RESTful API.                                                                      | ✅     | CoinGecko API                                             |
-| Usage of at least 5 UI components from the material-ui/@core                                                   | ✅     | Table, Cards, Icons, Drawer, NavBar, Grid, Buttons, Lists |
-| An example of a reusable component that you have created and used in the app (e.g. Ul component, service, etc) | ✅     | UI Component, Firestore Db, functions, Routes             |
+| Requirements                                                                                                   | Status | Details                                                                                                                                                                                     |
+| -------------------------------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Use of a modern JS Library / Framework like React, Angular, etc                                                | ✅     | React                                                                                                                                                                                       |
+| Create an application that can be interacted with in a minimum of three different ways by the user             | ✅     | Login/Register, Cryptocurrencies Table View, Watchlist                                                                                                                                      |
+| The usage of a specified architectural pattern (MVC, MVP, MWM,etc.)                                            | ✅     | MVVM                                                                                                                                                                                        |
+| Integration with a backend service developed by you with CRUD(create, read, update, delete) operations         | ✅     | RESTful API with NodeJs, Express, Firestore.                                                                                                                                                |
+| Integration with a 3rd party RESTful API.                                                                      | ✅     | `CoinGecko API`                                                                                                                                                                             |
+| Usage of at least 5 UI components from the material-ui/@core                                                   | ✅     | `Box`, `MuiAppBar`, `MuiDrawer`, `Toolbar`, `List`, `ListItemIcon`, `ListItem`, `Divider`, `IconButton`, `Menu`, `MenuItem`, `Alert`, `AlertTitle`, `Table`, `Card`, `Card Content`, `Grid` |
+| An example of a reusable component that you have created and used in the app (e.g. Ul component, service, etc) | ✅     | `<DashboardHeader/>`, `<LandingPageNavBar/>`, `<LoginFormView/>`, `<FooterComponent/>`, `<Home/>`, `<Login/>`, `<Register/>`, `<Assets/>`, `<Crypto/>`, `<Watchlist/>`, `<NFT/>`            |
 
 ## 🔬 Functionalities
 
