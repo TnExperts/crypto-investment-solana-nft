@@ -8,6 +8,7 @@ import {
 } from '../../../redux/nftReducer';
 import DisplayAlert from './components/DisplayAlert';
 import ConnectPhantomButton from './components/ConnectPhantomButton';
+import CandyMachine from './CandyMachine/CandyMachine';
 
 const NFT = () => {
   const isPhantomFound = useAppSelector((state) => state.nft.isPhantomFound);
@@ -34,11 +35,8 @@ const NFT = () => {
             walletAddress={walletAddress}
           />
           <h1>Mint NFT</h1>
-          <p>test:{walletAddress}</p>
-          <h3>
-            Thank you for using Crypto Trading, it's time for a treat! :&#x29;
-          </h3>
           <ConnectPhantomButton walletAddress={walletAddress} />
+          {walletAddress && <CandyMachine walletAddress={window.solana} />}
         </div>
       </div>
     </>
