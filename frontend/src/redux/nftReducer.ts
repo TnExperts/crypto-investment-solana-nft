@@ -4,11 +4,25 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 interface NFTState {
   walletAddress: string;
   isPhantomFound: boolean;
+  machineStats: {
+    itemsAvailableInMachine: number;
+    itemsRedeemedInMachine: number;
+    itemsRemainingInMachine: number;
+    getLiveMachineData: number;
+    liveMachineDataFormatted: number;
+  };
 }
 
 const initialState: NFTState = {
   walletAddress: '',
   isPhantomFound: false,
+  machineStats: {
+    itemsAvailableInMachine: 0,
+    itemsRedeemedInMachine: 0,
+    itemsRemainingInMachine: 0,
+    getLiveMachineData: 0,
+    liveMachineDataFormatted: 0,
+  },
 };
 
 declare global {
@@ -58,9 +72,6 @@ export const NFTSlice = createSlice({
   // reducers: returns some new state based on the action
   reducers: {
     // actions: actions that actually changes the state (mutating logic)
-    setWalletAddress: (state, action) => {
-      state.walletAddress = action.payload;
-    },
     checkIfPhantomFound: (state, action) => {
       try {
         const { solana } = window;
@@ -72,6 +83,11 @@ export const NFTSlice = createSlice({
       } catch (error) {
         console.log(error);
       }
+    },
+    setMetaplexCancyMachineStats: (state, action) => {
+      state.machineStats = {
+        ...action.payload,
+      };
     },
   },
   extraReducers: (builder) => {
@@ -87,7 +103,8 @@ export const NFTSlice = createSlice({
 });
 
 //export actions
-export const { checkIfPhantomFound } = NFTSlice.actions;
+export const { checkIfPhantomFound, setMetaplexCancyMachineStats } =
+  NFTSlice.actions;
 
 //export reducers
 export default NFTSlice.reducer;
