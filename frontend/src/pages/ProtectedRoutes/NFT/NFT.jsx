@@ -1,33 +1,44 @@
 import React from 'react';
 import DashboardHeader from '../../../components/DashboardNavBar/DashboardHeader';
-import ConnectPhantomButton from './components/ConnectPhantomButton';
-import NFTModel from './NFTModel';
-
 import './NFT.css';
+import { useAppSelector, useAppDispatch } from '../../../hooks/hooks';
+import {
+  isPhantomConnected,
+  checkIfPhantomFound,
+} from '../../../redux/nftReducer';
+import DisplayAlert from './components/DisplayAlert';
+import ConnectPhantomButton from './components/ConnectPhantomButton';
 
 const NFT = () => {
-  const nftModel = new NFTModel();
+  const isPhantomFound = useAppSelector((state) => state.nft.isPhantomFound);
+  const walletAddress = useAppSelector((state) => state.nft.walletAddress);
+  const dispatch = useAppDispatch();
 
   React.useEffect(() => {
     const onPageLoad = async () => {
-      await nftModel.isPhantomConnected();
+      dispatch(checkIfPhantomFound());
+      dispatch(isPhantomConnected());
     };
     window.addEventListener('load', onPageLoad);
     return () => {
       window.removeEventListener('load', onPageLoad);
     };
-  }, [nftModel]);
+  }, []);
   return (
     <>
       <DashboardHeader />
       <div className="App">
         <div className="App-header">
+          <DisplayAlert
+            isPhantomFound={isPhantomFound}
+            walletAddress={walletAddress}
+          />
           <h1>Mint NFT</h1>
+          <p>test:{walletAddress}</p>
           <h3>
             Thank you for using Crypto Trading, it's time for a treat! :&#x29;
           </h3>
-          {/* if wallet is not connected */}
-          <ConnectPhantomButton nftModel={nftModel} />
+          <ConnectPhantomButton walletAddress={walletAddress} />
         </div>
       </div>
     </>
