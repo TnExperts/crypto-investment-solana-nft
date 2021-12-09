@@ -34,7 +34,10 @@ const NFT = () => {
             isPhantomFound={isPhantomFound}
             walletAddress={walletAddress}
           />
-          <h1>Mint NFT</h1>
+          <h1>Crypto Trading NFT Drops 🍭</h1>
+          <h6 style={{ marginTop: '5px' }}>
+            Treat yo self after a fun day of Crypto Trading! :&#x29;
+          </h6>
           <ConnectPhantomButton walletAddress={walletAddress} />
           {walletAddress && <CandyMachine walletAddress={window.solana} />}
         </div>
