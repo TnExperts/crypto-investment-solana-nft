@@ -1,12 +1,8 @@
-// 1. Fetch https://api.nasa.gov/planetary/apod?api_key=qtsL1JRuXNiM3Bkw5jSjoo2xK2rH4ACc6jY9HVBh&start_date=2021-01-01&end_date=2021-12-09
-// 2. Parse the response into an array of objects
-// 3. Loop through the array of objects
-
 const ADDRESS = '5Wwbtyd1Ky3ZhDdpJQGE3m5s2VTueJWsay6VNW93s6cd';
 
 // const fetchImages = async () => {
 //   const url =
-//     'https://api.nasa.gov/planetary/apod?api_key=qtsL1JRuXNiM3Bkw5jSjoo2xK2rH4ACc6jY9HVBh&start_date=2021-01-01&end_date=2021-12-09';
+//     'https://api.nasa.gov/planetary/apod?api_key=process.env.NASA_API&start_date=2021-01-01&end_date=2021-12-09';
 //   const response = await fetch(url);
 //   const data = await response.json();
 //   return data;
