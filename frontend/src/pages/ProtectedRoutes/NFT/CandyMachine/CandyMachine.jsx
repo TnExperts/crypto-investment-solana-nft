@@ -58,6 +58,8 @@ const RenderMintedItems = () => {
 };
 
 const CandyMachine = ({ walletAddress }) => {
+  const [isMinting, setIsMinting] = React.useState(false);
+  const [isLoadingMints, setIsLoadingMints] = React.useState(false);
   const dispatch = useAppDispatch();
   const machineStats = useAppSelector((state) => state.nft.machineStats);
   const mintedItems = useAppSelector((state) => state.nft.mintedItems);
@@ -100,7 +102,7 @@ const CandyMachine = ({ walletAddress }) => {
         liveMachineDataFormatted,
       })
     );
-
+    setIsLoadingMints(true);
     const data = await fetchHashTable(
       process.env.REACT_APP_CANDY_MACHINE_ID,
       true
@@ -123,10 +125,12 @@ const CandyMachine = ({ walletAddress }) => {
         }
       }
     }
+    setIsLoadingMints(false);
   };
 
   const mintToken = async () => {
     try {
+      setIsMinting(true);
       const mint = web3.Keypair.generate();
       const token = await getTokenWallet(
         walletAddress.publicKey,
@@ -211,6 +215,8 @@ const CandyMachine = ({ walletAddress }) => {
             const { result } = notification;
             if (!result.err) {
               console.log('NFT Minted!');
+              setIsMinting(false);
+              await getCandyMachineState();
             }
           }
         },
@@ -218,7 +224,7 @@ const CandyMachine = ({ walletAddress }) => {
       );
     } catch (error) {
       let message = error.msg || 'Minting failed! Please try again!';
-
+      setIsMinting(false);
       if (!error.msg) {
         if (error.message.indexOf('0x138')) {
         } else if (error.message.indexOf('0x137')) {
@@ -237,25 +243,38 @@ const CandyMachine = ({ walletAddress }) => {
       console.warn(message);
     }
   };
-
+  const NFT_MINT_BUTTON_TEXT = 'Mint NFT';
+  const NFT_MINT_BUTTON_TEXT_DISABLED = 'Minting...';
   return (
     machineStats && (
       <>
         <div className="machine-stats-container">
           <h5>Details</h5>
-          <h4
+          {/* <h4
             style={{ fontSize: 16 }}
-          >{`Drop Date: ${machineStats.liveMachineDataFormatted}`}</h4>
+          >{`Drop Date: ${machineStats.liveMachineDataFormatted}`}</h4> */}
           <h4
             style={{ fontSize: 20 }}
           >{`Items Minted: ${machineStats.itemsRedeemedInMachine} / ${machineStats.itemsAvailableInMachine}`}</h4>
-          <button className="cta-button mint-button" onClick={mintToken}>
-            Mint NFT
+          <button
+            className="cta-button mint-button"
+            onClick={mintToken}
+            disabled={isMinting}
+          >
+            {!isMinting ? NFT_MINT_BUTTON_TEXT : NFT_MINT_BUTTON_TEXT_DISABLED}
           </button>
         </div>
         <div className="minted-items-container">
-          <h5>Minted Items ✨</h5>
-          {mintedItems.length > 0 && <RenderMintedItems />}
+          {isLoadingMints ? (
+            <>
+              <h5>Loading Minted Items...</h5>
+            </>
+          ) : (
+            <>
+              <h5>Minted Items ✨</h5>
+              {mintedItems.length > 0 && <RenderMintedItems />}
+            </>
+          )}
         </div>
       </>
     )
