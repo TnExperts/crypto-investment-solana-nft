@@ -35,8 +35,7 @@ const NFT = () => {
             isPhantomFound={isPhantomFound}
             walletAddress={walletAddress}
           />
-          <h1>Crypto Trading NFT Drops ☄️</h1>
-          <h4 style={{ marginTop: '5px' }}>Treat yo self &#x1F36C;</h4>
+          <h1>Crypto Trading NFT Drops &#x1F36C;</h1>
           {walletAddress ? (
             <>
               <div className="mint-container">
