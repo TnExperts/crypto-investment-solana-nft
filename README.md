@@ -10,15 +10,13 @@ Crypto Trading is a web app that displays information about the price, market ca
 
 ## 🤳 Project Screenshots
 
----
+|            Cryptocurrencies Table View             |               Statistics Page                |               Watchlist Page                |                   NFT Mint Page                   |
+| :------------------------------------------------: | :------------------------------------------: | :-----------------------------------------: | :-----------------------------------------------: |
+| ![Cryptocurrencies](./readme_assets/TableView.png) | ![Statistics](./readme_assets/StatsPage.png) | ![Watchlist](./readme_assets/Watchlist.png) | ![NFT Mint Page](./readme_assets/NFTDropPage.png) |
 
-|            Cryptocurrencies Table View             |               Statistics Page                |               Watchlist Page                |                   NFT Auth Page                    |                   NFT Mint Page                   |
-| :------------------------------------------------: | :------------------------------------------: | :-----------------------------------------: | :------------------------------------------------: | :-----------------------------------------------: |
-| ![Cryptocurrencies](./readme_assets/TableView.png) | ![Statistics](./readme_assets/StatsPage.png) | ![Watchlist](./readme_assets/Watchlist.png) | ![Web3 Auth Page](./readme_assets/NFTAuthPage.png) | ![NFT Mint Page](./readme_assets/NFTDropPage.png) |
-
-|                Landing Page                 |                 Register                  |                 Login                 |                  Side Drawer View                   |
-| :-----------------------------------------: | :---------------------------------------: | :-----------------------------------: | :-------------------------------------------------: |
-| ![Landing](./readme_assets/LandingPage.png) | ![Register](./readme_assets/Register.png) | ![Landing](./readme_assets/Login.png) | ![Side Drawer View](./readme_assets/SideDrawer.png) |
+|                Landing Page                 |                 Register                  |                 Login                 |                   NFT Auth Page                    |
+| :-----------------------------------------: | :---------------------------------------: | :-----------------------------------: | :------------------------------------------------: |
+| ![Landing](./readme_assets/LandingPage.png) | ![Register](./readme_assets/Register.png) | ![Landing](./readme_assets/Login.png) | ![Web3 Auth Page](./readme_assets/NFTAuthPage.png) |
 
 ## 🚶 Project Demo
 
@@ -57,7 +55,9 @@ Crypto Trading is a web app that displays information about the price, market ca
 
 ---
 
-![User Flow](./readme_assets/UserFlow.png)
+<p align="center" widht="100%">
+	<img src="./readme_assets/UserFlow.png" alt="Project Demo"/>
+</p>
 
 ## Project Structure
 
