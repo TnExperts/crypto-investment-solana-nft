@@ -1,5 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
+interface Mint {
+  mintedItems: string;
+}
+
 // state for the nft reducer
 interface NFTState {
   walletAddress: string;
@@ -11,6 +15,7 @@ interface NFTState {
     getLiveMachineData: number;
     liveMachineDataFormatted: number;
   };
+  mintedItems: Mint[];
 }
 
 const initialState: NFTState = {
@@ -23,6 +28,7 @@ const initialState: NFTState = {
     getLiveMachineData: 0,
     liveMachineDataFormatted: 0,
   },
+  mintedItems: [],
 };
 
 declare global {
@@ -89,6 +95,9 @@ export const NFTSlice = createSlice({
         ...action.payload,
       };
     },
+    setMintedItems: (state, action) => {
+      state.mintedItems.push(action.payload);
+    },
   },
   extraReducers: (builder) => {
     // extra reducers for specific actions
@@ -103,8 +112,11 @@ export const NFTSlice = createSlice({
 });
 
 //export actions
-export const { checkIfPhantomFound, setMetaplexCancyMachineStats } =
-  NFTSlice.actions;
+export const {
+  checkIfPhantomFound,
+  setMetaplexCancyMachineStats,
+  setMintedItems,
+} = NFTSlice.actions;
 
 //export reducers
 export default NFTSlice.reducer;
