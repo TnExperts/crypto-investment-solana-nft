@@ -9,6 +9,7 @@ import {
 import DisplayAlert from './components/DisplayAlert';
 import ConnectPhantomButton from './components/ConnectPhantomButton';
 import CandyMachine from './CandyMachine/CandyMachine';
+import Grid from '@mui/material/Grid';
 
 const NFT = () => {
   const isPhantomFound = useAppSelector((state) => state.nft.isPhantomFound);
@@ -34,12 +35,24 @@ const NFT = () => {
             isPhantomFound={isPhantomFound}
             walletAddress={walletAddress}
           />
-          <h1>Crypto Trading NFT Drops 🍭</h1>
-          <h6 style={{ marginTop: '5px' }}>
-            Treat yo self after a fun day of Crypto Trading! :&#x29;
-          </h6>
-          <ConnectPhantomButton walletAddress={walletAddress} />
-          {walletAddress && <CandyMachine walletAddress={window.solana} />}
+          <h1>Crypto Trading NFT Drops ☄️</h1>
+          <h4 style={{ marginTop: '5px' }}>Treat yo self &#x1F36C;</h4>
+          {walletAddress ? (
+            <>
+              <div className="mint-container">
+                <Grid
+                  container
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <CandyMachine walletAddress={window.solana} />
+                </Grid>
+              </div>
+            </>
+          ) : (
+            <ConnectPhantomButton />
+          )}
         </div>
       </div>
     </>
