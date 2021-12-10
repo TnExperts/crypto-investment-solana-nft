@@ -1,4 +1,4 @@
-# 📈 Crypto Trading
+# 📈 Crypto Investment App
 
 Crypto Trading is a web app that displays information about the price, market cap, change in price over time, price charts of various cryptocurrencies like Bitcoin and Ethereum. The app also lets users add assets to their watchlist and mint NFTs on Solana Devnet. (Trading options are coming soon!)
 
@@ -20,7 +20,9 @@ Crypto Trading is a web app that displays information about the price, market ca
 
 ## 🚶 Project Demo
 
-![Demo](./readme_assets/demo.gif)
+<p align="center" width="100%">
+	<img src="./readme_assets/demo.gif" alt="Project Demo"/>
+</p>
 
 ## 🎯 Project Scope
 
@@ -56,7 +58,7 @@ Crypto Trading is a web app that displays information about the price, market ca
 ---
 
 <p align="center" width="100%">
-	<img src="./readme_assets/UserFlow.png" alt="Project Demo"/>
+	<img src="./readme_assets/UserFlow.png" alt="User Flow"/>
 </p>
 
 ## Project Structure
