@@ -21,6 +21,7 @@ import { signOut } from 'firebase/auth';
 import { useHistory } from 'react-router-dom';
 import { auth } from '../../config/firebase';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../hooks/hooks';
 
 const drawerWidth = 240;
 
@@ -97,6 +98,7 @@ export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const history = useHistory();
+  const walletAddress = useAppSelector((state) => state.nft.walletAddress);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -133,7 +135,21 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <h3>Dashboard 👀</h3>
+          <span
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '100%',
+            }}
+          >
+            <h3>Dashboard &#x1F440;</h3>
+            {walletAddress && (
+              <h4>
+                &#x1F47B; {walletAddress.slice(0, 4)}...
+                {walletAddress.slice(-4)}
+              </h4>
+            )}
+          </span>
         </Toolbar>
       </AppBar>
       <Drawer
