@@ -10,9 +10,9 @@ Crypto Trading is a web app that displays information about the price, market ca
 
 ## 🤳 Project Screenshots
 
-|                             Cryptocurrencies Table View                              |                                         Statistics Page                                          |                                      Watchlist Page                                      |                                       NFT Mint Page                                       |
-| :----------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------: |
-| <img src="./readme_assets/TableView.png" alt="Table View" width="320" height="180"/> | <img src="./readme_assets/StatisticsPage.png" alt="Crypto Stats Page" width="320" height="180"/> | <img src="./readme_assets/Watchlist.png" alt="Watchlist view" width="320" height="180"/> | <img src="./readme_assets/NFTDropPage.png" alt="NFT Mint Page" width="320" height="180"/> |
+|                 Cryptos Table View                 |                 Crypto Stats Page                 |               Watchlist Page                |                   NFT Mint Page                   |
+| :------------------------------------------------: | :-----------------------------------------------: | :-----------------------------------------: | :-----------------------------------------------: |
+| ![Cryptocurrencies](./readme_assets/TableView.png) | ![Statistics](./readme_assets/StatisticsPage.png) | ![Watchlist](./readme_assets/Watchlist.png) | ![NFT Mint Page](./readme_assets/NFTDropPage.png) |
 
 |                Landing Page                 |                 Register                  |                 Login                 |                   NFT Auth Page                    |
 | :-----------------------------------------: | :---------------------------------------: | :-----------------------------------: | :------------------------------------------------: |
