@@ -34,7 +34,7 @@ button[type='submit']:hover {
 
 .machine-stats-container {
   border-radius: 10px;
-  height: 50vh;
+  height: 60vh;
   overflow: auto;
   width: 25vw;
   /* background-color: #3f3333; */
@@ -43,7 +43,7 @@ button[type='submit']:hover {
 
 .minted-items-container {
   border-radius: 10px;
-  height: 50vh;
+  height: 60vh;
   overflow: auto;
   width: 53vw;
   /* background-color: blue; */
@@ -54,7 +54,7 @@ button[type='submit']:hover {
 
 .minted-items-images-container {
   border-radius: 10px;
-  height: 50vh;
+  height: 60vh;
   overflow: auto;
   background-color: #151518;
   width: 53vw;
