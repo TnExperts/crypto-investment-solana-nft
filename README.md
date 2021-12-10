@@ -1,53 +1,28 @@
 # 📈 Crypto Trading
 
-Crypto Trading is a web app that displays information about the price, market cap, change in price over time, price charts of various cryptocurrencies like Bitcoin and Ethereum. The app also lets users take add assets to their watchlist.
+Crypto Trading is a web app that displays information about the price, market cap, change in price over time, price charts of various cryptocurrencies like Bitcoin and Ethereum. The app also lets users add assets to their watchlist and mint NFTs on Solana Devnet. (Trading options are coming soon!)
 
 <h3 align="left">Built with:</h3>
-<a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="typescript" width="40" height="40"/></a> 
-<a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/></a> 
-<a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/></a> 
-<a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> 
-<a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/></a>
+
+| Languages                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Back-End                                                                                                                                                                                                                                                                                                                                                                             | Database                                                                                                                                                                                     | Web3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Front-End                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | UI Framework                                                                                                                                                                                                 | Hosting                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" alt="typescript" width="30" height="30"/></a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" alt="typescript" width="30" height="30"/></a> | <a href="https://nodejs.org" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="nodejs" width="30" height="30"/></a><a href="https://expressjs.com/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" alt="expressjs" width="100" height="30"/></a> | <a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="30" height="30"/></a> | <a href="https://solana.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/tapabratadey/Just-Gifs/main/public/solana.svg" alt="Solana" width="30" height="30"/></a><a href="https://phantom.app/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/tapabratadey/Just-Gifs/main/public/phantom.svg" alt="Phantom" width="30" height="30"/></a><a href="https://www.metaplex.com/" target="_blank" rel="noreferrer"> <img src="https://assets.website-files.com/6182ee30b608385a15466a3f/61830a3b2fae13390f52a5e0_Metaplex%20Logo%20Mark_blue.svg" alt="Metaplex" width="30" height="30"/></a> | <a href="https://reactjs.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="30" height="30"/></a><a href="https://redux-toolkit.js.org/" target="_blank" rel="noreferrer"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" alt="redux-toolkit" width="30" height="30"/></a><a href="https://mobx.js.org/README.html" target="_blank" rel="noreferrer"> <img src="https://mobx.js.org/img/mobx.png" alt="mobx" width="30" height="30"/></a> | <a href="https://mui.com/" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" alt="Materiul UI" width="30" height="30"/></a> | <a href="https://www.netlify.com/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/netlify.svg" alt="Netlify" width="30" height="30"/></a><a href="https://www.heroku.com/" target="_blank" rel="noreferrer"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain-wordmark.svg" alt="Heroku" width="30" height="30"/></a> |
 
 ## 🤳 Project Screenshots
 
 ---
 
-### Landing Page
+|            Cryptocurrencies Table View             |               Statistics Page                |               Watchlist Page                |                   NFT Auth Page                    |                   NFT Mint Page                   |
+| :------------------------------------------------: | :------------------------------------------: | :-----------------------------------------: | :------------------------------------------------: | :-----------------------------------------------: |
+| ![Cryptocurrencies](./readme_assets/TableView.png) | ![Statistics](./readme_assets/StatsPage.png) | ![Watchlist](./readme_assets/Watchlist.png) | ![Web3 Auth Page](./readme_assets/NFTAuthPage.png) | ![NFT Mint Page](./readme_assets/NFTDropPage.png) |
 
-![Landing](./readme_assets/LandingPage.png)
+|                Landing Page                 |                 Register                  |                 Login                 |                  Side Drawer View                   |
+| :-----------------------------------------: | :---------------------------------------: | :-----------------------------------: | :-------------------------------------------------: |
+| ![Landing](./readme_assets/LandingPage.png) | ![Register](./readme_assets/Register.png) | ![Landing](./readme_assets/Login.png) | ![Side Drawer View](./readme_assets/SideDrawer.png) |
 
-### Register Page
+## 🚶 Project Demo
 
-![Register](./readme_assets/Register.png)
-
-### Login Page
-
-![Login](./readme_assets/Login.png)
-
-### Cryptocurrencies Page
-
-![Cryptocurrencies](./readme_assets/TableView.png)
-
-### Statistics Page
-
-![Statistics](./readme_assets/StatsPage.png)
-
-### Watchlist Page
-
-![Watchlist](./readme_assets/Watchlist.png)
-
-### NFT Auth Page
-
-![Web3 Auth Page](./readme_assets/NFTAuthPage.png)
-
-### NFT Mint Page
-
-![NFT Mint Page](./readme_assets/NFTDropPage.png)
-
-### Side Drawer
-
-![NFT Mint Page](./readme_assets/SideDrawer.png)
+![Demo](./readme_assets/demo.gif)
 
 ## 🎯 Project Scope
 
@@ -104,5 +79,3 @@ Crypto Trading is a web app that displays information about the price, market ca
 I'm using GitHub Kanban to plan and organize different stages of this project.
 
 You can view public my GitHub board [here](https://github.com/tapabratadey/crypto-trading/projects/1).
-
-## 🧪 Technologies Used
