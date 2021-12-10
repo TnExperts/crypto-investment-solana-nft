@@ -216,7 +216,7 @@ export default function MiniDrawer() {
                   <RedeemIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
 
-                <h4>Claim NFT!</h4>
+                <h4>Mint NFTs!</h4>
               </ListItem>
             </Link>
           </List>
