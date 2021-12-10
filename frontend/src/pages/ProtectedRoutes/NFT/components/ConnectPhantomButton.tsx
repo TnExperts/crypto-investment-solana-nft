@@ -6,15 +6,12 @@ interface Props {
 }
 
 const ConnectPhantomButton: React.FC<Props> = (props) => {
-  const { walletAddress } = props;
   const dispatch = useAppDispatch();
   return (
     <>
-      {!walletAddress && (
-        <button type="submit" onClick={() => dispatch(connectPhantom())}>
-          Connect Your Phantom Wallet
-        </button>
-      )}
+      <button type="submit" onClick={() => dispatch(connectPhantom())}>
+        Connect Your Phantom Wallet
+      </button>
     </>
   );
 };
