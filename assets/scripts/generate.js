@@ -22,7 +22,7 @@ const getImages = () => {
       const file = fs.createWriteStream(`../nft_assets/${index}.json`);
       file.write(
         JSON.stringify({
-          name: `${image.title} by ${image.copyright} on ${image.date}. from @tapabratadey :)`,
+          name: `${image.title}. @tapabratadey website`,
           symbol: '',
           description: image.explanation,
           image: `${index}.png`,
