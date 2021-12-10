@@ -32,7 +32,7 @@ const cards = [
   },
   {
     id: 6,
-    title: 'Win NFT!',
+    title: 'Mint NFTs!',
     color1: '#faaca8',
     color2: '#ff512f',
   },
