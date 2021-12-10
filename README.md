@@ -17,25 +17,37 @@ Crypto Trading is a web app that displays information about the price, market ca
 
 ![Landing](./readme_assets/LandingPage.png)
 
-### Login Page
-
-![Login](./readme_assets/Login.png)
-
 ### Register Page
 
 ![Register](./readme_assets/Register.png)
 
+### Login Page
+
+![Login](./readme_assets/Login.png)
+
 ### Cryptocurrencies Page
 
-![Cryptocurrencies](./readme_assets/Cryptocurrencies.png)
+![Cryptocurrencies](./readme_assets/TableView.png)
 
 ### Statistics Page
 
-![Statistics](./readme_assets/Statistics.png)
+![Statistics](./readme_assets/StatsPage.png)
 
 ### Watchlist Page
 
 ![Watchlist](./readme_assets/Watchlist.png)
+
+### NFT Auth Page
+
+![Web3 Auth Page](./readme_assets/NFTAuthPage.png)
+
+### NFT Mint Page
+
+![NFT Mint Page](./readme_assets/NFTDropPage.png)
+
+### Side Drawer
+
+![NFT Mint Page](./readme_assets/SideDrawer.png)
 
 ## 🎯 Project Scope
 
