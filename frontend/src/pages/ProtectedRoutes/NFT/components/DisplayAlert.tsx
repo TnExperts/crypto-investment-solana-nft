@@ -28,14 +28,6 @@ const DisplayAlert: React.FC<Props> = (props) => {
           </AlertTitle>
         </Alert>
       )}
-      {walletAddress && (
-        <Alert severity="success">
-          <AlertTitle>
-            You have successfully connected to your Phantom wallet!
-          </AlertTitle>
-          <strong>Welcome: {walletAddress}</strong>
-        </Alert>
-      )}
     </>
   );
 };
