@@ -1,57 +1,70 @@
 // Candy Machine Boiler template
 import React, { useEffect } from 'react';
-import { Connection, PublicKey } from '@solana/web3.js';
-import { Program, Provider, web3 } from '@project-serum/anchor';
+import { Connection } from '@solana/web3.js';
+import { Program, web3 } from '@project-serum/anchor';
 import { MintLayout, TOKEN_PROGRAM_ID, Token } from '@solana/spl-token';
-import { programs } from '@metaplex/js';
-import './CandyMachine.css';
+import '../NFT.css';
 import { useAppSelector, useAppDispatch } from '../../../../hooks/hooks';
-import { setMetaplexCancyMachineStats } from '../../../../redux/nftReducer';
 import {
-  candyMachineProgram,
-  TOKEN_METADATA_PROGRAM_ID,
-  SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID,
-} from './helpers';
+  setMetaplexCancyMachineStats,
+  setMintedItems,
+} from '../../../../redux/nftReducer';
+import { candyMachineProgram, TOKEN_METADATA_PROGRAM_ID } from './helpers';
 
-const {
-  metadata: { Metadata, MetadataProgram },
-} = programs;
+import getProvider from './GetProvider';
+import getTokenWallet from './GetTokenWallet';
+import getMetadata from './GetMetaData';
+import getMasterEdition from './GetMasterEdition';
+import createAssociatedTokenAccountInstruction from './AssociatedTokenAccountsInstr';
+import fetchHashTable from './FetchHashTable';
+
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 const config = new web3.PublicKey(process.env.REACT_APP_CANDY_MACHINE_CONFIG);
 const { SystemProgram } = web3;
-const opts = {
-  preflightCommitment: 'processed',
+
+const style = {
+  bgcolor: '#151518',
+  borderRadius: '10px',
+  boxShadow: 10,
+  color: 'white',
+  height: '200px',
+  width: '48%',
 };
 
-const MAX_NAME_LENGTH = 32;
-const MAX_URI_LENGTH = 200;
-const MAX_SYMBOL_LENGTH = 10;
-const MAX_CREATOR_LEN = 32 + 1 + 1;
+const RenderMintedItems = () => {
+  const mintedItems = useAppSelector((state) => state.nft.mintedItems);
+
+  return (
+    <div className="minted-items-images-container">
+      <div className="img-grid">
+        {mintedItems.map((mint) => (
+          <div className="img-item" key={mint.title}>
+            <img src={mint.image} alt={`Minted NFT ${mint}`} />
+            <Card sx={style}>
+              <CardContent>
+                <h4>{mint.name}</h4>
+              </CardContent>
+              <CardContent>
+                <h4>{mint.description}</h4>
+              </CardContent>
+            </Card>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const CandyMachine = ({ walletAddress }) => {
   const dispatch = useAppDispatch();
   const machineStats = useAppSelector((state) => state.nft.machineStats);
+  const mintedItems = useAppSelector((state) => state.nft.mintedItems);
 
   useEffect(() => {
     getCandyMachineState();
   }, []);
-
-  // Provider for the candy machine
-  // It will let our client connect to Solana and mint NFTs on the candy machine
-  const getProvider = () => {
-    const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST;
-
-    //new connection object
-    const connection = new Connection(rpcHost);
-
-    // new provider object
-    const provider = new Provider(
-      connection,
-      window.solana,
-      opts.preflightCommitment
-    );
-    return provider;
-  };
 
   // Get the candy machine state
   const getCandyMachineState = async () => {
@@ -87,88 +100,29 @@ const CandyMachine = ({ walletAddress }) => {
         liveMachineDataFormatted,
       })
     );
-  };
 
-  // Actions
-  const fetchHashTable = async (hash, metadataEnabled) => {
-    const connection = new web3.Connection(
-      process.env.REACT_APP_SOLANA_RPC_HOST
+    const data = await fetchHashTable(
+      process.env.REACT_APP_CANDY_MACHINE_ID,
+      true
     );
+    if (data.length !== 0) {
+      for (const mint of data) {
+        // URI
+        const res = await fetch(mint.data.uri);
+        const parse_res = await res.json();
+        console.log('Minted NFTs:', mint);
 
-    const metadataAccounts = await MetadataProgram.getProgramAccounts(
-      connection,
-      {
-        filters: [
-          {
-            memcmp: {
-              offset:
-                1 +
-                32 +
-                32 +
-                4 +
-                MAX_NAME_LENGTH +
-                4 +
-                MAX_URI_LENGTH +
-                4 +
-                MAX_SYMBOL_LENGTH +
-                2 +
-                1 +
-                4 +
-                0 * MAX_CREATOR_LEN,
-              bytes: hash,
-            },
-          },
-        ],
+        if (!mintedItems.find((item) => item === parse_res.image)) {
+          dispatch(
+            setMintedItems({
+              image: parse_res.image,
+              name: parse_res.name,
+              description: parse_res.description,
+            })
+          );
+        }
       }
-    );
-
-    const mintHashes = [];
-
-    for (let index = 0; index < metadataAccounts.length; index++) {
-      const account = metadataAccounts[index];
-      const accountInfo = await connection.getParsedAccountInfo(account.pubkey);
-      const metadata = new Metadata(hash.toString(), accountInfo.value);
-      if (metadataEnabled) mintHashes.push(metadata.data);
-      else mintHashes.push(metadata.data.mint);
     }
-
-    return mintHashes;
-  };
-
-  const getMetadata = async (mint) => {
-    return (
-      await PublicKey.findProgramAddress(
-        [
-          Buffer.from('metadata'),
-          TOKEN_METADATA_PROGRAM_ID.toBuffer(),
-          mint.toBuffer(),
-        ],
-        TOKEN_METADATA_PROGRAM_ID
-      )
-    )[0];
-  };
-
-  const getMasterEdition = async (mint) => {
-    return (
-      await PublicKey.findProgramAddress(
-        [
-          Buffer.from('metadata'),
-          TOKEN_METADATA_PROGRAM_ID.toBuffer(),
-          mint.toBuffer(),
-          Buffer.from('edition'),
-        ],
-        TOKEN_METADATA_PROGRAM_ID
-      )
-    )[0];
-  };
-
-  const getTokenWallet = async (wallet, mint) => {
-    return (
-      await web3.PublicKey.findProgramAddress(
-        [wallet.toBuffer(), TOKEN_PROGRAM_ID.toBuffer(), mint.toBuffer()],
-        SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID
-      )
-    )[0];
   };
 
   const mintToken = async () => {
@@ -284,44 +238,27 @@ const CandyMachine = ({ walletAddress }) => {
     }
   };
 
-  const createAssociatedTokenAccountInstruction = (
-    associatedTokenAddress,
-    payer,
-    walletAddress,
-    splTokenMintAddress
-  ) => {
-    const keys = [
-      { pubkey: payer, isSigner: true, isWritable: true },
-      { pubkey: associatedTokenAddress, isSigner: false, isWritable: true },
-      { pubkey: walletAddress, isSigner: false, isWritable: false },
-      { pubkey: splTokenMintAddress, isSigner: false, isWritable: false },
-      {
-        pubkey: web3.SystemProgram.programId,
-        isSigner: false,
-        isWritable: false,
-      },
-      { pubkey: TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },
-      {
-        pubkey: web3.SYSVAR_RENT_PUBKEY,
-        isSigner: false,
-        isWritable: false,
-      },
-    ];
-    return new web3.TransactionInstruction({
-      keys,
-      programId: SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID,
-      data: Buffer.from([]),
-    });
-  };
-
   return (
-    <div className="machine-container">
-      {/* <h3>{`Drop Date: ${machineStats.liveMachineDataFormatted}`}</h3> */}
-      <h4>{`Items Minted: ${machineStats.itemsRedeemedInMachine} / ${machineStats.itemsAvailableInMachine}`}</h4>
-      <button className="cta-button mint-button" onClick={mintToken}>
-        Mint NFT
-      </button>
-    </div>
+    machineStats && (
+      <>
+        <div className="machine-stats-container">
+          <h5>Details</h5>
+          <h4
+            style={{ fontSize: 16 }}
+          >{`Drop Date: ${machineStats.liveMachineDataFormatted}`}</h4>
+          <h4
+            style={{ fontSize: 20 }}
+          >{`Items Minted: ${machineStats.itemsRedeemedInMachine} / ${machineStats.itemsAvailableInMachine}`}</h4>
+          <button className="cta-button mint-button" onClick={mintToken}>
+            Mint NFT
+          </button>
+        </div>
+        <div className="minted-items-container">
+          <h5>Minted Items ✨</h5>
+          {mintedItems.length > 0 && <RenderMintedItems />}
+        </div>
+      </>
+    )
   );
 };
 
