@@ -256,13 +256,21 @@ const CandyMachine = ({ walletAddress }) => {
           <h4
             style={{ fontSize: 20 }}
           >{`Items Minted: ${machineStats.itemsRedeemedInMachine} / ${machineStats.itemsAvailableInMachine}`}</h4>
-          <button
-            className="cta-button mint-button"
-            onClick={mintToken}
-            disabled={isMinting}
-          >
-            {!isMinting ? NFT_MINT_BUTTON_TEXT : NFT_MINT_BUTTON_TEXT_DISABLED}
-          </button>
+          {machineStats.itemsRemainingInMachine > 0 ? (
+            <>
+              <button
+                className="cta-button mint-button"
+                onClick={mintToken}
+                disabled={isMinting}
+              >
+                {!isMinting
+                  ? NFT_MINT_BUTTON_TEXT
+                  : NFT_MINT_BUTTON_TEXT_DISABLED}
+              </button>
+            </>
+          ) : (
+            <h4>SOLD OUT!</h4>
+          )}
         </div>
         <div className="minted-items-container">
           {isLoadingMints ? (
