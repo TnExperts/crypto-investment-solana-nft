@@ -19,8 +19,6 @@
 			- [Backend](#backend-1)
 			- [Frontend](#frontend-1)
 - [User Flow](#user-flow)
-	- [Backend](#backend-2)
-	- [Frontend](#frontend-2)
 - [Project Management](#project-management)
 - [Installation](#installation)
 - [Hosted Link](#hosted-link)
@@ -37,7 +35,7 @@ Crypto Trading is a web app that displays information about the price, market ca
 
 ## Project Demo
 
-Fusce at mollis justo. Suspendisse eleifend neque diam, et ullamcorper urna gravida vitae.
+TODO: Write a good description of the demo
 
 ### 🤳 Screenshots
 
@@ -57,7 +55,7 @@ Fusce at mollis justo. Suspendisse eleifend neque diam, et ullamcorper urna grav
 
 # Project Scope
 
-Donec ultricies egestas augue non dignissim.
+TODO: WRITE SCOPE
 
 ## Requirements
 
@@ -85,15 +83,15 @@ Donec ultricies egestas augue non dignissim.
 
 ## Project Architecture
 
-Talk about the implemented architecture\*. V1: MVVM. V2: Flux
+TODO: Talk about the implemented architecture\*. V1: MVVM. V2: Flux
 
 ### Backend
 
-Layered architecture with RESTful API with CRUD operations.
+TODO: API Design (Layered architecture with RESTful API with CRUD operations)
 
 ### Frontend
 
-MVVM architecture for this project using MobX for state management for React Components.
+TODO: Component Designs MVVM architecture for this project using MobX for state management for React Components.
 
 ### Folder Structure
 
@@ -108,14 +106,11 @@ MVVM architecture for this project using MobX for state management for React Com
 # User Flow
 
 Talk about how users can interact w/ the app.
+TODO: Expand more.
 
 <p align="center" width="100%">
 	<img src="./readme_assets/UserFlow.png" alt="User Flow"/>
 </p>
-
-## Backend
-
-## Frontend
 
 # Project Management
 
@@ -125,7 +120,7 @@ You can view public my GitHub board [here](https://github.com/tapabratadey/crypt
 
 # Installation
 
-Write the installation instructions here.
+TODO: Write the installation instructions here.
 
 # Hosted Link
 
